@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Equitool-AFB5F47D-E4B2-401D-9C9C-270B9F17DB16")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Equitool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]

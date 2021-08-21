@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zozo\\Documents\\Equitool\\Equitool\\Equitool.csproj": {}
+    "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zozo\\Documents\\Equitool\\Equitool\\Equitool.csproj": {
+    "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zozo\\Documents\\Equitool\\Equitool\\Equitool.csproj",
+        "projectUniqueName": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj",
         "projectName": "Equitool",
-        "projectPath": "C:\\Users\\zozo\\Documents\\Equitool\\Equitool\\Equitool.csproj",
+        "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj",
         "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zozo\\Documents\\Equitool\\Equitool\\obj\\",
+        "outputPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

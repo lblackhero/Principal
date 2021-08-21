@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+hImeu9d5Nk8qr5ytBNIBlYiBnfBhtrNt2rGgLZf9QHhjMPGZdaH1RoHqDBxVyvHIP4TNwbFem3DpV76+XjhPQ==",
+  "dgSpecHash": "LYNz2ldoJSJzoP/Wn7F3X4HEogunv4wzgJIZ8RF+sQIU5Y6bdRD7pLyULLSDE9hKOZocVhYdpZ48WL3oq3BTCg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zozo\\Documents\\Equitool\\Equitool\\Equitool.csproj",
+  "projectFilePath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zozo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.15\\microsoft.aspnetcore.cryptography.internal.3.1.15.nupkg.sha512",
     "C:\\Users\\zozo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.15\\microsoft.aspnetcore.cryptography.keyderivation.3.1.15.nupkg.sha512",
