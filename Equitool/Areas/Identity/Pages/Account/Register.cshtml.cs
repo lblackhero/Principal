@@ -5,7 +5,11 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Text.Encodings.Web;
+using System.Threading;
 using System.Threading.Tasks;
+using MailKit;
+using MailKit.Net.Imap;
+using MailKit.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -75,6 +79,27 @@ namespace Equitool.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                try
+                {
+                    using (var client = new ImapClient())
+                    {
+                        using (var cancel = new CancellationTokenSource())
+                        {
+                            client.Connect("imap.gmail.com", 993, true, cancel.Token);
+                            client.AuthenticationMechanisms.Remove("XOAUTH");
+                            client.Authenticate(Input.Email, Input.Password);
+                            var mensajes = client.Inbox.Open(FolderAccess.ReadOnly);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message == "Invalid credentials (Failure)" || ex.Message.Contains("Invalid credentials (Failure)"))
+                    {
+                        ModelState.AddModelError(string.Empty, "Por favor ingrese las credenciales correctas de su cuenta Gmail, o por favor indique que confia en aplicaciones menos seguras url: https://myaccount.google.com/lesssecureapps");
+                        return Page();
+                    }
+                }
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

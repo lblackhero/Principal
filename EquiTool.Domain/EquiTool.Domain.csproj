@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EquiTool.Aplication\EquiTool.Aplication.csproj" />
+    <ProjectReference Include="..\EquiTool.Entities\EquiTool.Entities.csproj" />
+    <ProjectReference Include="..\EquiTool.infrastructure\EquiTool.infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

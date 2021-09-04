@@ -3,25 +3,9 @@
 }
 @if (User.Identity.IsAuthenticated)
 {
-    <section class="bg-primary text-white text-center py-5">
-        <div class="container-fluid py-3">
-            <header class="mb-5">
-                <h1 class="display-4 font-weight-bolder"> Bienvenido @User.Identity.Name</h1>
-                <p class="lead">
-                    Lorem ipsum met ed ta dolore.
-                </p>
-            </header>
-            <svg class="bi" width="32" height="32" fill="currentColor">
-                <use xlink:href="lib/bootstrap-icons/bootstrap-icons.svg#person" />
-            </svg>
-        </div>
-    </section>
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
+    
 }
 else
 {
-    <p class="text-center">No se encuentra logeado por favor ingrese</p>
+
 }

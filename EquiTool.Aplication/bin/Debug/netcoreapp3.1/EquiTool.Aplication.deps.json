@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "EquiTool.Aplication/1.0.0": {
+        "dependencies": {
+          "EquiTool.Entities": "1.0.0"
+        },
+        "runtime": {
+          "EquiTool.Aplication.dll": {}
+        }
+      },
+      "EquiTool.Entities/1.0.0": {
+        "runtime": {
+          "EquiTool.Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EquiTool.Aplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EquiTool.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,12 +1,13 @@
 ﻿@page
 @model TwoFactorAuthenticationModel
 @{
-    ViewData["Title"] = "Two-factor authentication (2FA)";
+    ViewData["Title"] = "Autenticación en dos pasos (2FA)";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<h4>@ViewData["Title"]</h4>
+<h4 class="text-center">@ViewData["Title"]</h4>
+<hr />
 @if (Model.Is2faEnabled)
 {
     if (Model.RecoveryCodesLeft == 0)
@@ -41,15 +42,21 @@
     <a asp-page="./GenerateRecoveryCodes" class="btn btn-default">Reset recovery codes</a>
 }
 
-<h5>Authenticator app</h5>
+<h5 class="text-center">App de autenticación</h5>
+<br />
 @if (!Model.HasAuthenticator)
 {
-    <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-default">Add authenticator app</a>
+    <div class="row justify-content-center">
+        <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-default">Add authenticator app</a>
+    </div>
 }
 else
 {
-    <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-default">Setup authenticator app</a>
-    <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-default">Reset authenticator app</a>
+<div class="row justify-content-center btn-toolbar pull-rigth">
+    <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-default btn-outline-success mr-3">Configurar App</a>
+    <br />
+    <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-default btn-outline-danger mr-3">Resetear App </a>
+</div>
 }
 
 @section Scripts {

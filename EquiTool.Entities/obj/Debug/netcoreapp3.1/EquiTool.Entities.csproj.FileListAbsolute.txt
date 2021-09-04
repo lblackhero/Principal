@@ -1,0 +1,8 @@
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\bin\Debug\netcoreapp3.1\EquiTool.Entities.deps.json
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\bin\Debug\netcoreapp3.1\EquiTool.Entities.dll
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\bin\Debug\netcoreapp3.1\EquiTool.Entities.pdb
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\obj\Debug\netcoreapp3.1\EquiTool.Entities.AssemblyInfoInputs.cache
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\obj\Debug\netcoreapp3.1\EquiTool.Entities.AssemblyInfo.cs
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\obj\Debug\netcoreapp3.1\EquiTool.Entities.csproj.CoreCompileInputs.cache
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\obj\Debug\netcoreapp3.1\EquiTool.Entities.dll
+C:\Users\zozo\source\repos\Principal\EquiTool.Entities\obj\Debug\netcoreapp3.1\EquiTool.Entities.pdb
