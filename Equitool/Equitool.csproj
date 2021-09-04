@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EquiTool.Aplication\EquiTool.Aplication.csproj" />
+    <ProjectReference Include="..\EquiTool.Domain\EquiTool.Domain.csproj" />
     <ProjectReference Include="..\EquiTool.infrastructure\EquiTool.infrastructure.csproj" />
   </ItemGroup>
 

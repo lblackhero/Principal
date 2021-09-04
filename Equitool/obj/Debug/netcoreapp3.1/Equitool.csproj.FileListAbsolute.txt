@@ -409,3 +409,8 @@ C:\Users\zozo\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.E
 C:\Users\zozo\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.infrastructure.dll
 C:\Users\zozo\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.infrastructure.pdb
 C:\Users\zozo\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.Entities.pdb
+C:\Users\zozo\Source\Repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.Aplication.dll
+C:\Users\zozo\Source\Repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.Domain.dll
+C:\Users\zozo\Source\Repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.Aplication.pdb
+C:\Users\zozo\Source\Repos\Principal\Equitool\bin\Debug\netcoreapp3.1\EquiTool.Domain.pdb
+C:\Users\zozo\Source\Repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Razor\Views\Facturacion\Index.cshtml.g.cs

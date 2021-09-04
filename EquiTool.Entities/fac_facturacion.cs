@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Equitool.Data
 {
@@ -10,6 +11,7 @@ namespace Equitool.Data
         /// <summary>
         /// Id de la factura
         /// </summary>
+        [Key]
         public int facn_id
         { get; set; }
 
@@ -40,13 +42,13 @@ namespace Equitool.Data
         /// <summary>
         /// Fecha de creación factura
         /// </summary>
-        public DateTime facd_creacion
+        public DateTime facd_fechacreacion
         { get; set; }
 
         /// <summary>
         /// Fecha de actualización
         /// </summary>
-        public DateTime facd_actualizacion
+        public Nullable<DateTime> facd_fechaactualizacion
         { get; set; }
     }
 }

@@ -2755,6 +2755,34 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "EquiTool.Aplication/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "EquiTool.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/EquiTool.Aplication.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EquiTool.Aplication.dll": {}
+        }
+      },
+      "EquiTool.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "EquiTool.Aplication": "1.0.0",
+          "EquiTool.Entities": "1.0.0",
+          "EquiTool.infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/EquiTool.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EquiTool.Domain.dll": {}
+        }
+      },
       "EquiTool.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -9071,6 +9099,16 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "EquiTool.Aplication/1.0.0": {
+      "type": "project",
+      "path": "../EquiTool.Aplication/EquiTool.Aplication.csproj",
+      "msbuildProject": "../EquiTool.Aplication/EquiTool.Aplication.csproj"
+    },
+    "EquiTool.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EquiTool.Domain/EquiTool.Domain.csproj",
+      "msbuildProject": "../EquiTool.Domain/EquiTool.Domain.csproj"
+    },
     "EquiTool.Entities/1.0.0": {
       "type": "project",
       "path": "../EquiTool.Entities/EquiTool.Entities.csproj",
@@ -9084,6 +9122,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "EquiTool.Aplication >= 1.0.0",
+      "EquiTool.Domain >= 1.0.0",
       "EquiTool.infrastructure >= 1.0.0",
       "MailKit >= 2.15.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.15",
@@ -9129,6 +9169,12 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
+              "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
+            },
+            "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
+              "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj"
+            },
             "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
               "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
             }

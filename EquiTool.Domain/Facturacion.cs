@@ -25,8 +25,9 @@ namespace EquiTool.Domain
         {
             try
             {
-                if (_context.fac_facturacion.LastOrDefault() != null)
-                    facturacion.facn_id = (_context.fac_facturacion.LastOrDefault().facn_id + 1);
+                var result = _context.fac_facturacion.Any(x => x.facn_id > 0);
+                if (result)
+                    facturacion.facn_id = (_context.fac_facturacion.ToList().LastOrDefault().facn_id + 1);
                 else
                     facturacion.facn_id = 1;
 
@@ -34,7 +35,7 @@ namespace EquiTool.Domain
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 throw;
             }

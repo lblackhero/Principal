@@ -1,4 +1,6 @@
 
+using EquiTool.Aplication;
+using EquiTool.Domain;
 using EquiTool.infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +35,7 @@ namespace Equitool
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped(typeof(IFacturacion), typeof(Facturacion));
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
