@@ -9142,11 +9142,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj",
+      "projectUniqueName": "C:\\Users\\zozo\\source\\repos\\Principal\\Equitool\\Equitool.csproj",
       "projectName": "Equitool",
-      "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj",
+      "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\Equitool\\Equitool.csproj",
       "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\obj\\",
+      "outputPath": "C:\\Users\\zozo\\source\\repos\\Principal\\Equitool\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -9169,14 +9169,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
-              "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
+            "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
+              "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
             },
-            "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
-              "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj"
+            "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
+              "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj"
             },
-            "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
-              "projectPath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
+            "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
+              "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
             }
           }
         }

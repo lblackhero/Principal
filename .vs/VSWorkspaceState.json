@@ -1,13 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Equitool",
-    "\\Equitool\\Areas",
-    "\\Equitool\\Areas\\Identity",
     "\\Equitool\\Areas\\Identity\\Pages",
     "\\Equitool\\Areas\\Identity\\Pages\\Account",
     "\\Equitool\\Areas\\Identity\\Pages\\Account\\Manage"
   ],
-  "SelectedNode": "\\Equitool\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+  "SelectedNode": "\\Equitool.sln",
   "PreviewInSolutionExplorer": false
 }

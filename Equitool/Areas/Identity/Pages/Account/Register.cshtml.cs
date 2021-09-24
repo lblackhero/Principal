@@ -88,7 +88,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                             client.Connect("imap.gmail.com", 993, true, cancel.Token);
                             client.AuthenticationMechanisms.Remove("XOAUTH");
                             client.Authenticate(Input.Email, Input.Password);
-                            var mensajes = client.Inbox.Open(FolderAccess.ReadOnly);
+                            
                         }
                     }
                 }
@@ -119,13 +119,13 @@ namespace Equitool.Areas.Identity.Pages.Account
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
                     System.Net.NetworkCredential credentials =
-                        new System.Net.NetworkCredential("yourpetsmaster@hotmail.com", "Pets.2020");
+                        new System.Net.NetworkCredential("Equitoolmaster@hotmail.com", "Equitool.2021");
                     client.Credentials = credentials;
 
-                    var mail = new MailMessage("yourpetsmaster@hotmail.com", Input.Email);
-                    mail.Subject = "Perfecto, estas a un paso confirma tu cuenta";
+                    var mail = new MailMessage("Equitoolmaster@hotmail.com", Input.Email);
+                    mail.Subject = "Solo un paso más";
                     mail.IsBodyHtml = true;
-                    mail.Body = $"Por favor confirma tu cuenta en el siguiente enlace <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > haz click acá </a>. ";
+                    mail.Body = $"Hola, por favor confirma tu cuenta en el siguiente enlace <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > haz click acá </a>. ";
                     client.Send(mail);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)

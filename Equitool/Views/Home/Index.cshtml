@@ -1,10 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Inicio";
 }
+
 @if (User.Identity.IsAuthenticated)
 {
+
 }
 else
 {
 
+    <!-- Header-->
+
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container px-5">
+                <h1 class="masthead-heading mb-0">¡Bienvenido a Equitool!</h1>
+                <h2 class="masthead-subheading mb-0">Organiza de una manera eficiente</h2>
+                <a class="btn btn-outline-light btn-xl rounded-pill mt-5" href="#scroll">Saber más</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content section 1-->
+    <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="/images/Equitool.png" alt="..." /></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4 font-weight-bold">Ten el control</h2><br />
+                        <h5><b>¿Quieres tener un registro de tus facturas?</b></h5>
+                        <p>Con las opciones de manejo de tus facturas, podras llevar un registro del estado de tus facturas.<br /> Podras visualizar los precios de las distintas facturas, enviarlas y manipularlas de acuerdo a tus necesidades</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content section 2-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-5"><img class="img-fluid rounded-circle justify-content-center" src="/lib/bootstrap-icons/alt.svg" alt="..."></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <h2 class="display-4 font-weight-bold">¡Manipula tus facturas!</h2><br />
+                        <h5><b>¿Deseas revisar a detalle tus facturas?</b></h5>
+                        <p>Utilizando las opciones de manipulación puedes revisar a detalle tus facturas y aceptarlas o rechazarlas, además de poder analizarlas a tu gusto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content section 3-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="/lib/bootstrap-icons/alarm.svg" alt="..." /></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4 font-weight-bold">¿Servicio de mensajería?</h2><br />
+                        <p>Para facilitar tu comunicación con los demás usuarios, ¡contaras con el envío y recibo de correos electronicos para agilizar tus procesos de gestión!.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a id="back-to-top" href="#" class="btn btn-outline-primary btn-xl back-to-top mb-5" role="button"><i class="fas fa-chevron-up"></i></a>
+
 }
+
+

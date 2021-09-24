@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CGFC//aBuuCCuN8+uPoqwc17DhTZ4XorY41ahGF37ZJ1XjrD8kBWX+bcH8SVdJJMLL2oPnb+QLriBT15n/Tp8w==",
+  "dgSpecHash": "aRlLKAt7NDZMRdMyZ2myfY3Z+MNd5GBMhg+aBibJxf5k04G8LgeBgFXFxTVutTqecPGRtPgN+MHzxdhCzrcXRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zozo\\Source\\Repos\\Principal\\Equitool\\Equitool.csproj",
+  "projectFilePath": "C:\\Users\\zozo\\source\\repos\\Principal\\Equitool\\Equitool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zozo\\.nuget\\packages\\mailkit\\2.15.0\\mailkit.2.15.0.nupkg.sha512",
     "C:\\Users\\zozo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.15\\microsoft.aspnetcore.cryptography.internal.3.1.15.nupkg.sha512",

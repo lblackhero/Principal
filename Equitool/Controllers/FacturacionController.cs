@@ -19,7 +19,6 @@ namespace Equitool.Controllers
         {
             return View();
         }
-
         public IActionResult AddFacturacion()
         {
             try
@@ -41,5 +40,50 @@ namespace Equitool.Controllers
                 return NotFound();
             }
         }
+
+        [HttpPost]
+        
+        public IActionResult deleteFacturacion()
+        {
+            try
+            {
+                fac_facturacion facturaBorrar = new fac_facturacion();
+                facturaBorrar.facn_id = 1;
+
+                _IFacturacion.deleteFacturacion(facturaBorrar);
+
+                return View();
+
+            }
+            catch (Exception)
+            {
+
+                return NotFound();
+            }
+        }
+
+        public IActionResult actualizarFacturacion()
+        {
+            try
+            {
+                fac_facturacion facturaActualizar = new fac_facturacion();
+
+                facturaActualizar.facn_id = 2;
+
+                facturaActualizar.facc_descripcion = "Prueba zozo actualizada";
+                facturaActualizar.facc_repositorio = "Prueba actualizada";
+
+                _IFacturacion.updateFacturacion(facturaActualizar);
+
+                return View();
+
+            }
+            catch (Exception)
+            {
+
+                return NotFound();
+            }
+        }
+
     }
 }

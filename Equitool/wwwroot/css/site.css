@@ -2,26 +2,26 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
@@ -29,56 +29,86 @@ a {
 html {
     font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
 
-[id="nav-inicio"]:hover {
-    border-bottom: 1px solid #2F6391;
+/*Eliminar margenes horizontales*/
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-[id="nav-privacidad"]:hover {
-    border-bottom: 1px solid #2F6391;
+
+
+header.masthead {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(7rem + 72px);
+    padding-bottom: 7rem;
+    background-image: url(/images/bg-2.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
 }
 
-[id="nav-acceder"]:hover {
+header.masthead .masthead-content {
+  z-index: 1;
+  position: relative;
+}
+
+header.masthead .masthead-content .masthead-heading {
+  font-size: 4rem;
+}
+header.masthead .masthead-content .masthead-subheading {
+  font-size: 2rem;
+}
+
+#navbar-container li:hover {
     border-bottom: 1px solid #2F6391;
 }
 
@@ -99,25 +129,29 @@ body {
 }
 
 .jumbotron {
-    background-image:url(/images/bg-4.jpg);
+    background-image: url(/images/bg-4.jpg);
     background-size: cover;
     background-position: center;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
 
 @media (max-width: 600px) and (orientation: portrait) {
 
     #contenedor-login {
         margin-top: 35px;
         width: 285px;
-        
     }
 
     #contenedor-registrarse {
         margin-top: 35px;
         width: 285px;
     }
-
 }
 
 @media (max-width: 290px) and (orientation: portrait) {
@@ -133,11 +167,32 @@ body {
     }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (min-width: 992px) {
+    header.masthead {
+        padding-top: calc(10rem + 55px);
+        padding-bottom: 10rem;
+    }
+
+        header.masthead .masthead-content .masthead-heading {
+            font-size: 6rem;
+        }
+
+        header.masthead .masthead-content .masthead-subheading {
+            font-size: 4rem;
+        }
+}
+
 #dropdown-menu-perfil a:hover {
     font-style: oblique;
 }
 
-#dropdown-menu-perfil span:hover{
+#dropdown-menu-perfil span:hover {
     text-decoration: underline;
 }
 
@@ -162,4 +217,3 @@ body {
 #ajustes-cuenta span:hover {
     text-decoration: underline;
 }
-
