@@ -7,7 +7,7 @@
 
 
 <div class="row justify-content-center">
-    <div class="col-md-auto" id="contenedor-login" style="background-color: #ffffff;">
+    <div class="col-md-auto" id="contenedor-formularios" style="background-color: #ffffff;">
         <section>
             <form id="account" method="post">
                 <br />
@@ -15,19 +15,19 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" placeholder="alguien@correo.com" style="border: none; border-bottom: 1px outset #80bdff; border-radius: unset;" />
+                    <input asp-for="Input.Email" class="form-control" placeholder="alguien@correo.com"/>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" placeholder="Contraseña" style="border: none; border-bottom: 1px outset #80bdff; border-radius: unset;" />
+                    <input asp-for="Input.Password" class="form-control" placeholder="Contraseña"/>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            @Html.DisplayNameFor(m => m.Input.RememberMe) 
                         </label>
                     </div>
                 </div>

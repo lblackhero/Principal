@@ -38,6 +38,11 @@ namespace Equitool
             services.AddScoped(typeof(IFacturacion), typeof(Facturacion));
             services.AddControllersWithViews();
             services.AddRazorPages();
+            // AÑADIR LOS SERVICIOS DE SESIÓN.
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +61,9 @@ namespace Equitool
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            // AÑADIR LA SESIÓN.
+            // DEBE IR SIEMPRE ANTES DE app.UseMvc
+            app.UseSession();
 
             app.UseRouting();
 

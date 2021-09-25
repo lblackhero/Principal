@@ -36,6 +36,19 @@ html {
     }
 }
 
+/* If the screen size is 1200px wide or more, set the font-size to 80px */
+@media (min-width: 1200px) {
+    .responsive-font-example {
+        font-size: 80px;
+    }
+}
+/* If the screen size is smaller than 1200px, set the font-size to 80px */
+@media (max-width: 1199.98px) {
+    .responsive-font-example {
+        font-size: 30px;
+    }
+}
+
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
@@ -82,37 +95,29 @@ body {
     margin-left: auto;
 }
 
-
-
 header.masthead {
     position: relative;
     overflow: hidden;
     padding-top: calc(7rem + 72px);
+    min-height: 100vh;
     padding-bottom: 7rem;
-    background-image: url(/images/bg-2.jpg);
+    background-image: url(/images/bg-4.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
 }
 
-header.masthead .masthead-content {
-  z-index: 1;
-  position: relative;
-}
-
-header.masthead .masthead-content .masthead-heading {
-  font-size: 4rem;
-}
-header.masthead .masthead-content .masthead-subheading {
-  font-size: 2rem;
-}
+    header.masthead .masthead-content {
+        z-index: 1;
+        position: relative;
+    }
 
 #navbar-container li:hover {
     border-bottom: 1px solid #2F6391;
 }
 
-#contenedor-login {
+#contenedor-formularios {
     width: 24rem;
     border-radius: .55rem;
     margin-top: 10.5rem;
@@ -120,13 +125,11 @@ header.masthead .masthead-content .masthead-subheading {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-#contenedor-registrarse {
-    width: 24rem;
-    border-radius: .55rem;
-    margin-top: 10.5rem;
-    border: 4px thin #b5b5b5;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-}
+    #contenedor-formularios input {
+        border: none;
+        border-bottom: 1px outset #80bdff;
+        border-radius: unset;
+    }
 
 .jumbotron {
     background-image: url(/images/bg-4.jpg);
@@ -143,12 +146,12 @@ header.masthead .masthead-content .masthead-subheading {
 
 @media (max-width: 600px) and (orientation: portrait) {
 
-    #contenedor-login {
+    #contenedor-formularios {
         margin-top: 35px;
         width: 285px;
     }
 
-    #contenedor-registrarse {
+    #contenedor-formularios {
         margin-top: 35px;
         width: 285px;
     }
@@ -156,12 +159,12 @@ header.masthead .masthead-content .masthead-subheading {
 
 @media (max-width: 290px) and (orientation: portrait) {
 
-    #contenedor-login {
-        margin-top: 4px;
+    #contenedor-formularios {
+        margin-top: 35px;
         width: 200px;
     }
 
-    #contenedor-registrarse {
+    #contenedor-formularios {
         margin-top: 4px;
         width: 200px;
     }

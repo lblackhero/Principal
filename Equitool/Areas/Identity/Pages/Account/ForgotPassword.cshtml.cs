@@ -30,8 +30,9 @@ namespace Equitool.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Introduce un correo")]
             [EmailAddress]
+           
             public string Email { get; set; }
         }
 

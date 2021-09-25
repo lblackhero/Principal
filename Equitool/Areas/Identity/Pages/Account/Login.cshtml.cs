@@ -17,6 +17,7 @@ using MailKit;
 using Equitool.Data;
 using System.Security.Claims;
 using EquiTool.Aplication;
+using Microsoft.AspNetCore.Http;
 
 namespace Equitool.Areas.Identity.Pages.Account
 {
@@ -27,15 +28,18 @@ namespace Equitool.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public LoginModel(SignInManager<IdentityUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager, IFacturacion facturacion)
+            UserManager<IdentityUser> userManager, IFacturacion facturacion,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _IFacturacion = facturacion;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [BindProperty]
@@ -132,6 +136,8 @@ namespace Equitool.Areas.Identity.Pages.Account
                         client.AuthenticationMechanisms.Remove("XOAUTH");
                         client.Authenticate(Input.Email, Input.Password);
                         client.Inbox.Open(FolderAccess.ReadOnly);
+
+                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", "Prueba!");
 
                         var mensajes = client.Inbox;
 
