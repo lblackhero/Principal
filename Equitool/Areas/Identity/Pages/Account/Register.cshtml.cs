@@ -96,7 +96,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                 {
                     if (ex.Message == "Invalid credentials (Failure)" || ex.Message.Contains("Invalid credentials (Failure)"))
                     {
-                        ModelState.AddModelError(string.Empty, "Por favor ingrese las credenciales correctas de su cuenta Gmail, o por favor indique que confia en aplicaciones menos seguras url: https://myaccount.google.com/lesssecureapps");
+                        ModelState.AddModelError(string.Empty, "Por favor ingrese un correo perteneciente a Gmail.");
                         return Page();
                     }
                 }

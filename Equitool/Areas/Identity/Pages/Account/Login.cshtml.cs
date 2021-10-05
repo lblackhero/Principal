@@ -98,7 +98,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    GetCorreosUsuario();
+                    _httpContextAccessor.HttpContext.Session.SetString("SessionVar", _IFacturacion.Base64Encode(Input.Password));
 
                     return LocalRedirect(returnUrl);
 
@@ -123,54 +123,6 @@ namespace Equitool.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private void GetCorreosUsuario()
-        {
-
-            try
-            {
-                using (var client = new ImapClient())
-                {
-                    using (var cancel = new CancellationTokenSource())
-                    {
-                        client.Connect("imap.gmail.com", 993, true, cancel.Token);
-                        client.AuthenticationMechanisms.Remove("XOAUTH");
-                        client.Authenticate(Input.Email, Input.Password);
-                        client.Inbox.Open(FolderAccess.ReadOnly);
-
-                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", "Prueba!");
-
-                        var mensajes = client.Inbox;
-
-                        List<fac_facturacion> lista = new List<fac_facturacion>();
-                        ClaimsPrincipal pr = this.User;
-                        var id= _userManager.GetUserId(pr);
-
-                        for (int i = 0; i < mensajes.Count; i++)
-                        {
-                            var message = mensajes.GetMessage(i, cancel.Token);
-
-                            lista.Add(new fac_facturacion()
-                            {
-                                Aspnet_UserId = "eee",
-                                facb_estado = true,
-                                facc_descripcion = message.Body.ToString(),
-                                facc_repositorio = "",
-                                facd_fechacreacion = DateTime.Now
-
-
-                            });
-                        }
-
-                        _IFacturacion.Adfacturas(lista);
-
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
     }
 }

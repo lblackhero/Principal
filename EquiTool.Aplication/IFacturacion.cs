@@ -17,5 +17,11 @@ namespace EquiTool.Aplication
         public bool updateFacturacion(fac_facturacion actualizar);
 
         public List<fac_facturacion> Adfacturas(List<fac_facturacion> facturasAgregar);
+
+        public string GetSHA256(string str);
+
+        public string Base64Encode(string plainText);
+
+        public string Base64Decode(string base64EncodedData);
     }
 }

@@ -51,4 +51,5 @@ namespace Equitool.Data
         public Nullable<DateTime> facd_fechaactualizacion
         { get; set; }
     }
+
 }
