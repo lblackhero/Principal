@@ -56,7 +56,7 @@ namespace Equitool.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required(ErrorMessage = "La contraseña es obligatioria")]
-            [StringLength(100, ErrorMessage = "La {0} debe tener {2} y {1} carácteres de largo", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La {0} debe estar entre {2} y {1} carácteres de largo", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Contraseña")]
             public string Password { get; set; }
@@ -121,11 +121,10 @@ namespace Equitool.Areas.Identity.Pages.Account
                     System.Net.NetworkCredential credentials =
                         new System.Net.NetworkCredential("Equitoolmaster@hotmail.com", "Equitool.2021");
                     client.Credentials = credentials;
-
                     var mail = new MailMessage("Equitoolmaster@hotmail.com", Input.Email);
                     mail.Subject = "Solo un paso más";
                     mail.IsBodyHtml = true;
-                    mail.Body = $"Hola, por favor confirma tu cuenta en el siguiente enlace <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > haz click acá </a>. ";
+                    mail.Body = $"Hola '{User.Identity.Name}', por favor confirma tu cuenta en el siguiente enlace <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > haz click acá </a>. ";
                     client.Send(mail);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)

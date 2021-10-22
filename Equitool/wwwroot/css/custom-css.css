@@ -1,0 +1,54 @@
+/*Archivo que sobre escribe algunas clases de bootstrap*/
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.btn-outline {
+    color: #00aeef;
+    background-color: #ffffff;
+    border-color: #00aeef;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.btn-outline {
+    color: #00aeef;
+    background-color: #ffffff;
+    border-color: #00aeef;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+    .btn-outline:hover,
+    .btn-outline:active,
+    .btn-outline:focus,
+    .btn-outline.active {
+        background: #1a64b8;
+        color: #ffffff;
+        border-color: #1a64b8;
+    }
+
+.btn-colour-1 {
+    color: #fff;
+    background-color: #004E64;
+    border-color: #004E64;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+}
+
+    .btn-colour-1:hover,
+    .btn-colour-1:active,
+    .btn-colour-1:focus,
+    .btn-colour-1.active {
+        /* let's darken #004E64 a bit for hover effect */
+        background: #003D4F;
+        color: #ffffff;
+        border-color: #003D4F;
+    }
+

@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equitool", "Equitool\Equitool.csproj", "{485106FD-E56F-4BE6-99C2-C1DD5DEEAC6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquiTool.Aplication", "EquiTool.Aplication\EquiTool.Aplication.csproj", "{5D47E378-604A-4C35-85B2-B1687299674B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquiTool.Aplication", "EquiTool.Aplication\EquiTool.Aplication.csproj", "{5D47E378-604A-4C35-85B2-B1687299674B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquiTool.Domain", "EquiTool.Domain\EquiTool.Domain.csproj", "{86D90E5D-F6C1-46B7-AF39-86C4DA8941F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquiTool.Domain", "EquiTool.Domain\EquiTool.Domain.csproj", "{86D90E5D-F6C1-46B7-AF39-86C4DA8941F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquiTool.infrastructure", "EquiTool.infrastructure\EquiTool.infrastructure.csproj", "{68316FBE-7143-4D38-B589-51030D054962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquiTool.infrastructure", "EquiTool.infrastructure\EquiTool.infrastructure.csproj", "{68316FBE-7143-4D38-B589-51030D054962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquiTool.Entities", "EquiTool.Entities\EquiTool.Entities.csproj", "{FAA23465-6B4B-442F-8F95-43117063925E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquiTool.Entities", "EquiTool.Entities\EquiTool.Entities.csproj", "{FAA23465-6B4B-442F-8F95-43117063925E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{C1190959-FD25-4200-B725-E80CAA5DFD3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FAA23465-6B4B-442F-8F95-43117063925E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAA23465-6B4B-442F-8F95-43117063925E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAA23465-6B4B-442F-8F95-43117063925E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1190959-FD25-4200-B725-E80CAA5DFD3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1190959-FD25-4200-B725-E80CAA5DFD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1190959-FD25-4200-B725-E80CAA5DFD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1190959-FD25-4200-B725-E80CAA5DFD3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

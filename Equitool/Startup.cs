@@ -33,14 +33,16 @@ namespace Equitool
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped(typeof(IFacturacion), typeof(Facturacion));
+            services.AddScoped(typeof(ITokenGmail), typeof(TokenGmail));
             services.AddControllersWithViews();
             services.AddRazorPages();
             // AÑADIR LOS SERVICIOS DE SESIÓN.
             services.AddDistributedMemoryCache();
-            services.AddSession(options => {
+            services.AddSession(options =>
+            {
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
             });
 

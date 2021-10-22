@@ -10,24 +10,26 @@
 }
 
 
-<div class="container-fluid">
+<div class="container-fluid px-0">
     <div class="jumbotron jumbotron-fluid">
         <h1 class="mt-4 text-center text-white">Hola, <b>@User.Identity.Name</b></h1>
         <p class="text-center">Configura las diferentes <b>opciones</b> de tu cuenta</p>
     </div>
 </div>
 
-<div>
-    <div class="row justify-content-center">
-        <div class="col-md-9 text-center">
-            <partial name="_ManageNav" />
-            <br />
-        </div>
-        <div class="col-md-9">
+
+<div class="align-items-center">
+    <div class="col-md-12 text-center">
+        <partial name="_ManageNav" />
+        <br />
+    </div>
+    <div>
+        <div class="col-md-12">
             @RenderBody()
         </div>
     </div>
 </div>
+
 
 @section Scripts {
     @RenderSection("Scripts", required: false)

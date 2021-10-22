@@ -1,7 +1,38 @@
 ﻿@page
 @model ConfirmEmailModel
 @{
-    ViewData["Title"] = "Confirm email";
+    ViewData["Title"] = "Email confirmado";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container my-4">
+    <div class="container">
+        <div class="text-center">
+            <img class="img-fluid" src="~/images/confirmar-email_unDraw.svg" alt="confirmar-imagen" height="387" width="425" />
+        </div>
+    </div>
+    <h1 class="text-center responsive-font-example p-1">@ViewData["Title"]</h1>
+    <div class="text-center p-2 p-md-2">
+        <p class="lead">
+            ¡Bienvenido!, ya que confirmaste tu correo electrónico ahora podrás iniciar sesión.
+        </p>
+        <div class="col-sm-12">
+            <div class="col-md-12">
+                <a class="btn btn-outline" asp-page="./Login" role="button">
+                    <i class="fas fa-arrow-right"></i> Iniciar sesión
+                </a>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col"><hr></div>
+            <div class="col-auto">O</div>
+            <div class="col"><hr></div>
+        </div>
+        <br />
+        <div class="col-md-12">
+            <a class="btn btn-outline" asp-page="./Register" role="button">
+                <i class="fas fa-plus"></i> Crear cuenta
+            </a>
+        </div>
+    </div>
+</div>

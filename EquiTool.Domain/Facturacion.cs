@@ -6,6 +6,7 @@ using System.Text;
 using Equitool.Data;
 using EquiTool.Aplication;
 using EquiTool.infrastructure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace EquiTool.Domain
@@ -138,7 +139,7 @@ namespace EquiTool.Domain
 
                     contador += 1;
                 }
-                
+
                 _context.SaveChanges();
                 return lista;
             }
@@ -171,5 +172,41 @@ namespace EquiTool.Domain
             var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
+
+        public List<fac_facturacion> GetFacturacion(string usuario)
+        {
+            List<fac_facturacion> lista = new List<fac_facturacion>();
+
+            var registros = _context.fac_facturacion.Any(x => x.Aspnet_UserId == usuario);
+
+            if (registros)
+            {
+                lista = _context.fac_facturacion.ToList().Where(x => x.Aspnet_UserId == usuario).ToList();
+
+            }
+
+            return lista;
+        }
+
+
+        //public IdentityUser GetUserByEMail(string email)
+        //{
+        //    try
+        //    {
+        //        IdentityUser userFind = null;
+
+        //        if (_context.Users.Any(x => x.Email == email))
+        //        {
+        //            userFind = _context.Users.FirstOrDefault(x => x.Email == email);
+        //        }
+
+        //        return userFind;
+        //    }
+        //    catch
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Equitool.Data;
+//using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
 namespace EquiTool.Aplication
@@ -11,17 +12,20 @@ namespace EquiTool.Aplication
         /// <param name="facturacion">estructura de base de datos requeria para agregar</param>
         /// <returns>Retorna un booleano indicando si la operación fue exitosa</returns>
         public bool AddFacturacion(fac_facturacion facturacion);
-
         public bool deleteFacturacion(fac_facturacion borrar);
 
         public bool updateFacturacion(fac_facturacion actualizar);
 
         public List<fac_facturacion> Adfacturas(List<fac_facturacion> facturasAgregar);
 
+        public List<fac_facturacion> GetFacturacion(string usuario);
         public string GetSHA256(string str);
 
         public string Base64Encode(string plainText);
 
         public string Base64Decode(string base64EncodedData);
+
+
+        //public IdentityUser GetUserByEMail(string email);
     }
 }

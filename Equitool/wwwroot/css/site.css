@@ -36,19 +36,6 @@ html {
     }
 }
 
-/* If the screen size is 1200px wide or more, set the font-size to 80px */
-@media (min-width: 1200px) {
-    .responsive-font-example {
-        font-size: 80px;
-    }
-}
-/* If the screen size is smaller than 1200px, set the font-size to 80px */
-@media (max-width: 1199.98px) {
-    .responsive-font-example {
-        font-size: 30px;
-    }
-}
-
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
@@ -86,16 +73,42 @@ body {
     line-height: 60px; /* Vertically center the text there */
 }
 
-/*Eliminar margenes horizontales*/
-
-/*
-.container-fluid {
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
+/* If the screen size is 1200px wide or more, set the font-size to 80px */
+@media (min-width: 1200px) {
+    .responsive-font-example {
+        font-size: 50px;
+    }
 }
-*/
+/* If the screen size is smaller than 1200px, set the font-size to 80px */
+@media (max-width: 1199.98px) {
+    .responsive-font-example {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 475px) {
+    .responsive-font-example {
+        font-size: 29px;
+    }
+}
+
+@media (max-width: 400px) {
+    .responsive-font-example {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    .responsive-font-example {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 320px) {
+    .responsive-font-example-p {
+        font-size: 12.5px;
+    }
+}
 
 header.masthead {
     position: relative;
@@ -115,23 +128,17 @@ header.masthead {
         position: relative;
     }
 
-#navbar-container li:hover {
-    border-bottom: 1px solid #2F6391;
-}
-
-#contenedor-login, #contenedor-registrarse, #contenedor-restaurar_contraseña {
-    width: 24rem;
+#contenedor-login, #contenedor-registrarse, #restaurarContraseña {
     border-radius: .55rem;
-    margin-top: 10.5rem;
     border: 4px thin #b5b5b5;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-    #contenedor-login input, #contenedor-registrarse input, #contenedor-restaurar_contraseña input {
-        border: none;
-        border-bottom: 1px outset #80bdff;
-        border-radius: unset;
+@media only screen and (min-width: 1300px) {
+    #contenedor-login, #contenedor-registrarse, #restaurarContraseña {
+        margin-top: 6.5em;
     }
+}
 
 .back-to-top {
     position: fixed;
@@ -140,20 +147,9 @@ header.masthead {
     display: none;
 }
 
-@media (max-width: 600px) and (orientation: portrait) {
-
-    #contenedor-login, #contenedor-registrarse, #contenedor-restaurar_contraseña {
-        margin-top: 35px;
-        width: 285px;
-    }
-
-}
-
-@media (max-width: 290px) and (orientation: portrait) {
-
-    #contenedor-login, #contenedor-registrarse, #contenedor-restaurar_contraseña {
-        margin-top: 35px;
-        width: 200px;
+@media (max-width:560px) {
+    .back-to-top {
+        visibility:collapse
     }
 }
 
@@ -176,40 +172,6 @@ header.masthead {
         header.masthead .masthead-content .masthead-subheading {
             font-size: 4rem;
         }
-}
-
-#dropdown-menu-perfil a:hover {
-    font-style: oblique;
-}
-
-#dropdown-menu-perfil span:hover {
-    text-decoration: underline;
-}
-
-#dropdown-menu-seguridad a:hover {
-    font-style: oblique;
-}
-
-#dropdown-menu-seguridad span:hover {
-    text-decoration: underline;
-}
-
-#boton-salir :hover {
-    background-color: #ff0000;
-    color: #ffffff;
-    font-style: oblique;
-}
-
-#ajustes-cuenta a:hover {
-    font-style: oblique;
-}
-
-#ajustes-cuenta span:hover {
-    text-decoration: underline;
-}
-
-.ul li :focus {
-    border-bottom: 1px solid black;
 }
 
 .cover-container {
@@ -301,3 +263,177 @@ header.masthead {
     }
 }
 
+.carousel-control-prev-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-caret-left' viewBox='0 0 16 16'%3E%3Cpath d='M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-caret-right' viewBox='0 0 16 16'%3E%3Cpath d='M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z'/%3E%3C/svg%3E");
+}
+
+.carousel .carousel-indicators li {
+    background-color: #000000;
+}
+
+    .carousel .carousel-indicators li.active {
+        background-color: #1c1c1b;
+    }
+
+/* CSS */
+.button-59 {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 145px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+    .button-59:focus {
+        color: #171e29;
+    }
+
+    .button-59:hover {
+        border-color: #06f;
+        color: #06f;
+        fill: #06f;
+    }
+
+    .button-59:active {
+        border-color: #06f;
+        color: #06f;
+        fill: #06f;
+    }
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+}
+
+    #sidebar-wrapper .sidebar-heading {
+        padding: 0.875rem 1.25rem;
+        font-size: 1.2rem;
+    }
+
+    #sidebar-wrapper .list-group {
+        width: 15rem;
+    }
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+.fa-arrow-left {
+    transform: rotate(0);
+    transition: transform .3s ease-in;
+}
+
+    .fa-arrow-left.open {
+        transform: rotate(180deg);
+        transition: transform .3s ease-out;
+    }
+
+.card-counter {
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+}
+
+    .card-counter:hover {
+        box-shadow: 4px 4px 20px #DADADA;
+        transition: .3s linear all;
+    }
+
+    .card-counter.primary {
+        background-color: #007bff;
+        color: #FFF;
+    }
+
+    .card-counter.danger {
+        background-color: #ef5350;
+        color: #FFF;
+    }
+
+    .card-counter.success {
+        background-color: #66bb6a;
+        color: #FFF;
+    }
+
+    .card-counter.info {
+        background-color: #26c6da;
+        color: #FFF;
+    }
+
+    .card-counter i {
+        font-size: 5em;
+        opacity: 0.2;
+    }
+
+    .card-counter .count-numbers {
+        position: absolute;
+        right: 35px;
+        top: 20px;
+        font-size: 32px;
+        display: block;
+    }
+
+    .card-counter .count-name {
+        position: absolute;
+        right: 35px;
+        top: 65px;
+        font-style: italic;
+        text-transform: capitalize;
+        opacity: 0.5;
+        display: block;
+        font-size: 18px;
+    }

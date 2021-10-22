@@ -10,6 +10,7 @@ namespace EquiTool.infrastructure
         //Tabla correspondiente a facturacion
         public DbSet<fac_facturacion> fac_facturacion { get; set; }
 
+        //Tabla correspondiente a los tokens
         public DbSet<tok_tokengmail> tok_tokengmail { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -20,7 +21,6 @@ namespace EquiTool.infrastructure
         protected override void OnModelCreating(ModelBuilder model_builder)
         {
             base.OnModelCreating(model_builder);
-            model_builder.Entity<tok_tokengmail>().HasNoKey();
         }
     }
 }

@@ -18,6 +18,7 @@ using Equitool.Data;
 using System.Security.Claims;
 using EquiTool.Aplication;
 using Microsoft.AspNetCore.Http;
+using EquiTool.Entities;
 
 namespace Equitool.Areas.Identity.Pages.Account
 {
@@ -29,17 +30,19 @@ namespace Equitool.Areas.Identity.Pages.Account
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ITokenGmail _tokenGmail;
 
         public LoginModel(SignInManager<IdentityUser> signInManager,
             ILogger<LoginModel> logger,
             UserManager<IdentityUser> userManager, IFacturacion facturacion,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor, ITokenGmail tokenGmail)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _IFacturacion = facturacion;
             _httpContextAccessor = httpContextAccessor;
+            _tokenGmail = tokenGmail;
         }
 
         [BindProperty]
@@ -114,7 +117,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Inicio de sesión invalido, por favor contacte soporte o revise su correo.");
                     return Page();
                 }
             }
