@@ -121,23 +121,21 @@ namespace EquiTool.Domain
 
                 var result = _context.fac_facturacion.Any(x => x.facn_id > 0);
                 int fac_id = 0;
-
                 if (result)
                     fac_id = (_context.fac_facturacion.ToList().LastOrDefault().facn_id + 1);
                 else
                     fac_id = 1;
-
                 int contador = 0;
-
-
 
                 foreach (var factura in facturasAgregar)
                 {
-                    factura.facn_id = (fac_id + contador);
-                    _context.fac_facturacion.Add(factura);
-                    lista.Add(factura);
-
-                    contador += 1;
+                    if (!_context.fac_facturacion.Any(x => x.facc_idcorreounico == factura.facc_idcorreounico))
+                    {
+                        factura.facn_id = (fac_id + contador);
+                        _context.fac_facturacion.Add(factura);
+                        lista.Add(factura);
+                        contador += 1;
+                    }
                 }
 
                 _context.SaveChanges();
@@ -189,24 +187,21 @@ namespace EquiTool.Domain
         }
 
 
-        //public IdentityUser GetUserByEMail(string email)
-        //{
-        //    try
-        //    {
-        //        IdentityUser userFind = null;
+        public IdentityUser GetUserByEMail(string email)
+        {
+            try
+            {
+                IdentityUser userFind = null;
 
-        //        if (_context.Users.Any(x => x.Email == email))
-        //        {
-        //            userFind = _context.Users.FirstOrDefault(x => x.Email == email);
-        //        }
+                if (_context.Users.Any(x => x.Email == email))
+                    userFind = _context.Users.FirstOrDefault(x => x.Email == email);
 
-        //        return userFind;
-        //    }
-        //    catch
-        //    {
-
-        //        throw;
-        //    }
-        //}
+                return userFind;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

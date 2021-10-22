@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zozo\\source\\repos\\Principal\\Test\\Test.csproj": {}
+    "C:\\Users\\Jonathan\\source\\repos\\Principal\\Test\\Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
+    "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj",
+        "projectUniqueName": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj",
         "projectName": "EquiTool.Aplication",
-        "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj",
-        "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\obj\\",
+        "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zozo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -34,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
               }
             }
           }
@@ -49,6 +43,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,28 +64,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
+    "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj",
         "projectName": "EquiTool.Domain",
-        "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj",
-        "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zozo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -98,14 +92,14 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
               },
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
               },
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
               }
             }
           }
@@ -134,28 +128,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
+    "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj",
         "projectName": "EquiTool.Entities",
-        "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj",
-        "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\obj\\",
+        "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zozo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -194,28 +182,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
+    "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj",
         "projectName": "EquiTool.infrastructure",
-        "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj",
-        "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zozo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -228,8 +210,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
               }
             }
           }
@@ -264,28 +246,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\zozo\\source\\repos\\Principal\\Test\\Test.csproj": {
+    "C:\\Users\\Jonathan\\source\\repos\\Principal\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zozo\\source\\repos\\Principal\\Test\\Test.csproj",
+        "projectUniqueName": "C:\\Users\\Jonathan\\source\\repos\\Principal\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\Test\\Test.csproj",
-        "packagesPath": "C:\\Users\\zozo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zozo\\source\\repos\\Principal\\Test\\obj\\",
+        "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\Test\\Test.csproj",
+        "packagesPath": "C:\\Users\\Jonathan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\Test\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zozo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jonathan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -298,17 +274,17 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Aplication\\EquiTool.Aplication.csproj"
               },
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Domain\\EquiTool.Domain.csproj"
               },
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.Entities\\EquiTool.Entities.csproj"
               },
-              "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
-                "projectPath": "C:\\Users\\zozo\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
+              "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Jonathan\\source\\repos\\Principal\\EquiTool.infrastructure\\EquiTool.infrastructure.csproj"
               }
             }
           }
@@ -359,7 +335,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -40,6 +40,24 @@ namespace Equitool.Data
         { get; set; }
 
         /// <summary>
+        /// Persona que envia factura
+        /// </summary>
+        public string facc_desde
+        { get; set; }
+
+        /// <summary>
+        /// Persona que recibe factura
+        /// </summary>
+        public string facc_para
+        { get; set; }
+
+        /// <summary>
+        /// Identificador unico correo
+        /// </summary>
+        public string facc_idcorreounico
+        { get; set; }
+
+        /// <summary>
         /// Fecha de creación factura
         /// </summary>
         public DateTime facd_fechacreacion

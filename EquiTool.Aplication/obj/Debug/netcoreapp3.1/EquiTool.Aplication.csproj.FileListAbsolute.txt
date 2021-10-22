@@ -10,3 +10,16 @@ C:\Users\zozo\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1
 C:\Users\zozo\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Entities.dll
 C:\Users\zozo\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Entities.pdb
 C:\Users\zozo\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.csproj.CopyComplete
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Aplication.deps.json
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Aplication.dll
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Aplication.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Entities.dll
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\bin\Debug\netcoreapp3.1\EquiTool.Entities.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.csproj.AssemblyReference.cache
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.AssemblyInfoInputs.cache
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.AssemblyInfo.cs
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.dll
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.csproj.CopyComplete

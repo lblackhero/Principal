@@ -1,5 +1,5 @@
 ﻿using Equitool.Data;
-//using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
 namespace EquiTool.Aplication
@@ -25,7 +25,6 @@ namespace EquiTool.Aplication
 
         public string Base64Decode(string base64EncodedData);
 
-
-        //public IdentityUser GetUserByEMail(string email);
+        public IdentityUser GetUserByEMail(string email);
     }
 }

@@ -126,6 +126,6 @@ namespace Equitool.Areas.Identity.Pages.Account
             return Page();
         }
 
-        
+
     }
 }

@@ -10,3 +10,16 @@ C:\Users\zozo\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreap
 C:\Users\zozo\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.csproj.CopyComplete
 C:\Users\zozo\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.dll
 C:\Users\zozo\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\bin\Debug\netcoreapp3.1\EquiTool.infrastructure.deps.json
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\bin\Debug\netcoreapp3.1\EquiTool.infrastructure.dll
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\bin\Debug\netcoreapp3.1\EquiTool.infrastructure.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\bin\Debug\netcoreapp3.1\EquiTool.Entities.dll
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\bin\Debug\netcoreapp3.1\EquiTool.Entities.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.csproj.AssemblyReference.cache
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.AssemblyInfoInputs.cache
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.AssemblyInfo.cs
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.dll
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.infrastructure\obj\Debug\netcoreapp3.1\EquiTool.infrastructure.csproj.CopyComplete

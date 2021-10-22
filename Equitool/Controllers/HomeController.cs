@@ -27,6 +27,7 @@ namespace Equitool.Controllers
         private readonly IFacturacion _IFacturacion;
         private readonly ITokenGmail _tokenGmail;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private Task _status;
 
 
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor, IFacturacion facturacion, ITokenGmail tokenGmail, SignInManager<IdentityUser> signInManager)
@@ -40,91 +41,93 @@ namespace Equitool.Controllers
 
         public async Task<IActionResult> Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                
-
-                if (!GetCorreosUsuario())
-                {
-
-                    ModeloFacturacion modelFacturation = new ModeloFacturacion();
-
-                    modelFacturation.listaRegistros = new List<fac_facturacion>();
-
-                    modelFacturation.respuestaError = null;
-
-                    await _signInManager.SignOutAsync();
-
-                    return View("Index", modelFacturation);
-                }
-
-            }
-
-            var userId = this.User.FindFirstValue( ClaimTypes.NameIdentifier);
-
-            ModeloFacturacion modeloFacturacion = new ModeloFacturacion();
-
-            modeloFacturacion.listaRegistros = _IFacturacion.GetFacturacion(userId);
-
-            modeloFacturacion.respuestaError = null;
-
-            return View("Index", modeloFacturacion);
-        }
-        private bool GetCorreosUsuario()
-        {
-
-            bool variable = true;
-
             try
             {
-
-                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                if (_httpContextAccessor.HttpContext.Session.GetString("SessionVar") == null)
+                if (User.Identity.IsAuthenticated)
                 {
-
-                    var tokenUserID = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                    var resultado = _tokenGmail.GetTokenUsuario(tokenUserID);
-
-                    if (resultado != null)
+                    var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    if (!GetCorreosUsuario(userId))
                     {
-                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", resultado.tokc_tokenusuario);
+                        ModeloFacturacion modelFacturation = new ModeloFacturacion();
+                        modelFacturation.listaRegistros = new List<fac_facturacion>();
+                        modelFacturation.respuestaError = null;
+                        await _signInManager.SignOutAsync();
+
+                        return View("Index", modelFacturation);
                     }
                     else
                     {
-                        variable = false;
+
+                        ModeloFacturacion modeloFacturacion = new ModeloFacturacion();
+                        if (_status != null)
+                            while (!_status.IsCompleted) { };
+
+                        modeloFacturacion.listaRegistros = _IFacturacion.GetFacturacion(userId);
+                        modeloFacturacion.respuestaError = null;
+
+                        return View("Index", modeloFacturacion);
                     }
+                }
+                else
+                    return View();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+        private bool GetCorreosUsuario(string userId)
+        {
+            bool variable = true;
+            try
+            {
+                if (_httpContextAccessor.HttpContext.Session.GetString("SessionVar") == null)
+                {
+                    var resultado = _tokenGmail.GetTokenUsuario(userId);
+                    if (resultado != null)
+                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", resultado.tokc_tokenusuario);
+                    else
+                        variable = false;
                 }
                 else
                 {
                     tok_tokengmail Token = new tok_tokengmail();
-
                     Token.aspnet_userid = userId;
                     Token.tokc_tokenusuario = _IFacturacion.Base64Encode(_httpContextAccessor.HttpContext.Session.GetString("SessionVar"));
                     Token.tokd_fechacreacion = DateTime.Now;
-
                     bool resultado = _tokenGmail.AddToken(Token);
                 }
-
                 if (variable)
                 {
                     string contraseña = _httpContextAccessor.HttpContext.Session.GetString("SessionVar");
+                    _status = AddCorreosAsync(contraseña, userId);
+                }
+            }
+            catch
+            {
+                variable = false;
+            }
+            return variable;
+        }
 
+        private Task AddCorreosAsync(string strContraseña, string userId)
+        {
+            try
+            {
+                return Task.Run(() =>
+                {
                     using (var client = new ImapClient())
                     {
                         using (var cancel = new CancellationTokenSource())
                         {
                             client.Connect("imap.gmail.com", 993, true, cancel.Token);
                             client.AuthenticationMechanisms.Remove("XOAUTH");
-                            client.Authenticate(this.User.Identity.Name, _IFacturacion.Base64Decode(contraseña));
+                            client.Authenticate(this.User.Identity.Name, _IFacturacion.Base64Decode(strContraseña));
                             client.Inbox.Open(FolderAccess.ReadOnly);
-
-
                             var mensajes = client.Inbox;
 
                             List<fac_facturacion> lista = new List<fac_facturacion>();
-
                             for (int i = 0; i < mensajes.Count; i++)
                             {
                                 var message = mensajes.GetMessage(i, cancel.Token);
@@ -133,29 +136,23 @@ namespace Equitool.Controllers
                                 {
                                     Aspnet_UserId = userId,
                                     facb_estado = true,
-                                    facc_descripcion = message.Body.ToString(),
+                                    facc_descripcion = string.IsNullOrEmpty(message.TextBody == "" ? null : message.TextBody) ? ("Sin Descripción") : message.TextBody,
                                     facc_repositorio = "",
-                                    facd_fechacreacion = DateTime.Now
-
-
+                                    facd_fechacreacion = DateTime.Now,
+                                    facc_desde = message.From.ToString(),
+                                    facc_para = message.To.ToString(),
+                                    facc_idcorreounico = message.MessageId.ToString()
                                 });
                             }
-
                             _IFacturacion.Adfacturas(lista);
-
                         }
                     }
-                }
-
+                });
             }
-            catch (Exception)
+            catch
             {
-                variable = false;
+                throw;
             }
-
-            return variable;
-
         }
-        
     }
 }
