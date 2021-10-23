@@ -26,5 +26,7 @@ namespace EquiTool.Aplication
         public string Base64Decode(string base64EncodedData);
 
         public IdentityUser GetUserByEMail(string email);
+
+        public string AddRol(string rol);
     }
 }

@@ -203,5 +203,33 @@ namespace EquiTool.Domain
                 throw;
             }
         }
+
+        public string AddRol(string rol)
+        {
+            string strRespuesta = null;
+            try
+            {
+                if (!_context.Roles.Any(x => x.Name.ToLower().Trim().Contains(rol.ToLower().Trim())))
+                {
+                    _context.Roles.Add(new IdentityRole()
+                    {
+                        ConcurrencyStamp = null,
+                        Id = Guid.NewGuid().ToString(),
+                        Name = rol.ToLower().Trim(),
+                        NormalizedName = rol.ToLower().Trim()
+                    });
+                    _context.SaveChanges();
+                    strRespuesta = "Rol adicionado correctamente";
+                }
+                else
+                    strRespuesta = string.Concat("Ya existe un rol para: ", rol);
+                return strRespuesta;
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -30,7 +30,9 @@ namespace Equitool.Controllers
         {
             try
             {
+                //Obtengo listado de roles
                 RoleModel model = new RoleModel();
+                //Lo envio al modelo
                 model.roles = _roleManager.Roles.ToList();
                 model.respuesta = null;
 
@@ -44,23 +46,73 @@ namespace Equitool.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddUsuario()
+        public async Task<IActionResult> AddUsuarioRol()
         {
             try
             {
-                var Usuario = this.HttpContext.Request.Form["Usuario"];
-                if (!string.IsNullOrEmpty(Usuario))
+                //Obtengo el usuario que viene desde el form
+                var Usuario = this.HttpContext.Request.Form["CorreoUsuario"];
+                //Obtengo el rol usuario que viene desde el form
+                var RolUsuario = this.HttpContext.Request.Form["RolSeleccionado"];
+                string strRespuesta = null;
+
+                //Valido que los campos no esten vacios
+                if (!string.IsNullOrEmpty(Usuario) && !string.IsNullOrEmpty(RolUsuario))
                 {
-                    _IFacturacion.GetUserByEMail(Usuario);
+                    //Obtengo el usuario digitado
+                    IdentityUser identityUser = _IFacturacion.GetUserByEMail(Usuario);
+                    //Valido que el usuario exista
+                    if (identityUser != null)
+                    {
+                        //Obtengo listado de roles del usuario y lo convierto a lista
+                        List<string> lstResult = _userManager.GetRolesAsync(identityUser).Result.ToList();
+                        //Valido que el rol seleccionado ya no lo tenga el usuario
+                        if (!lstResult.Any(x => x.ToLower().Trim().Contains(RolUsuario)))
+                        {
+                            //Adiciono el rol al usuario
+                            await _userManager.AddToRolesAsync(identityUser, RolUsuario);
+                            strRespuesta = "Usuario adicionado al rol Correctamente";
+                        }
+                        else
+                            strRespuesta = "El usuario ya se encuentra con el rol seleccionado";
+                    }
+                    else
+                        strRespuesta = "El usuario digitado no se encuentra.";
                 }
                 else
-                {
+                    strRespuesta = "Digite un usuario o seleccione rol.";
 
-                }
-
+                //Retorno el modelo
                 RoleModel model = new RoleModel();
                 model.roles = _roleManager.Roles.ToList();
-                model.respuesta = null;
+                model.respuesta = strRespuesta;
+
+                return View("Index", model);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+        }
+
+
+        [HttpPost]
+        public IActionResult AddRol()
+        {
+            try
+            {
+                RoleModel model = new RoleModel();
+                var rol = this.HttpContext.Request.Form["Rol"];
+                if (!string.IsNullOrEmpty(rol))
+                {
+                    string strRespuesta = _IFacturacion.AddRol(rol);
+                    model.respuesta = strRespuesta;
+                }
+                else
+                    model.respuesta = "Digite un rol valido";
+
+                model.roles = _roleManager.Roles.ToList();
 
                 return View("Index", model);
             }

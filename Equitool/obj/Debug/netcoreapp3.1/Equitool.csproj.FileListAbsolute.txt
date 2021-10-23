@@ -372,9 +372,6 @@ C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Micros
 C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -487,3 +484,4 @@ C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equito
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.dll
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.pdb
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.genruntimeconfig.cache
+C:\Users\Jonathan\source\repos\Principal\Equitool\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
