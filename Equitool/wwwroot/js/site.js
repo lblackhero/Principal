@@ -3,6 +3,7 @@
 
 // Write your JavaScript code.
 
+// Back to top animation
 $(document).ready(function () {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
@@ -27,6 +28,7 @@ $(document).ready(function () {
     });
 }());
 
+// sidebar animation / toggler arrow
 window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation
@@ -45,19 +47,25 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+// Animation for the arrow that hides the sidebar
 (function (document) {
-    var div = document.getElementById('container');
+
+    var div = document.getElementById('containerArrow');
     var icon = document.getElementById('icon');
     var open = false;
 
-    div.addEventListener('click', function () {
-        if (open) {
-            icon.className = 'fa fa-arrow-left';
-        } else {
-            icon.className = 'fa fa-arrow-left open';
-        }
+    if (div) {
 
-        open = !open;
-    });
+        div.addEventListener('click', function () {
+            if (open) {
+                icon.className = 'fa fa-arrow-left';
+            } else {
+                icon.className = 'fa fa-arrow-left open';
+            }
+
+            open = !open;
+        });
+    }
+
 })(document);
 

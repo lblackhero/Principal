@@ -1,378 +1,417 @@
 ﻿@{
-	ViewData["Title"] = "Inicio";
+    ViewData["Title"] = "Inicio";
 }
+
 @model Equitool.Models.ModeloFacturacion
 
 @if (User.Identity.IsAuthenticated)
 {
-	<div class="d-flex toggled" id="wrapper">
-		<!-- Sidebar-->
-	<div class="d-flex">
-			<div class="border-end bg-white" style="border-right: 1px solid #e5e5e5;" id="sidebar-wrapper">
-				<div class="sidebar-heading border-bottom text-center">Secciones</div>
-				<div class="list-group list-group-flush text-left">
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
-							<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-							<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
-						</svg> Dashboard
-					</a>
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
-							<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-							<path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
-						</svg> Gestión
-					</a>
-					<a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
-							<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-							<path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-						</svg> Email
-					</a>
-					@if (User.IsInRole("Administrador"))
-					{
-						<a class="list-group-item list-group-item-action list-group-item-light p-3" asp-action="Index" asp-controller="Rol">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
-								<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-								<path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-							</svg> Roles
-						</a>
-					}
-				</div>
-			</div>
-		</div>
-		<!-- Page content wrapper-->
-	<div id="page-content-wrapper">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="d-flex">
+            <div class="border-end bg-white border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom text-center"><i class="fas fa-align-justify"></i> Secciones</div>
+                <div class="list-group list-group-flush text-left">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-action="Index">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        <i class="fas fa-tasks"></i> Gestión
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        <i class="far fa-envelope"></i> Email
+                    </a>
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-action="Index" asp-controller="Rol">
+                            <i class="fas fa-user-tag"></i> Roles
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
 
-			<!-- Top navigation-->
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
 
-		<div class="pl-2 pt-2 d-inline" id="container">
-				<a class="btn" id="sidebarToggle" role="button"><i id="icon" class="fa fa-arrow-left"></i></a>
-			</div>
+            <!-- Top navigation-->
+            <div class="pl-2 pt-2 d-inline" id="containerArrow">
+                <a class="btn" id="sidebarToggle" role="button"><i id="icon" class="fa fa-arrow-left"></i></a>
+            </div>
 
-			<!-- Page content-->
-			<!-- Cards dashboard -->
+            <!-- Page content-->
+            <!-- Cards dashboard -->
+            <div class="container-fluid px-5 pb-2">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card-counter primary">
+                            <i class="fa fa-code-fork"></i>
+                            <span class="count-numbers">18</span>
+                            <span class="count-name">Envíos</span>
+                        </div>
+                    </div>
 
-		<div class="container-flud px-5 pb-2">
-				<div class="row">
-					<div class="col-md-3">
-						<div class="card-counter primary">
-							<i class="fa fa-code-fork"></i>
-							<span class="count-numbers">18</span>
-							<span class="count-name">Envíos</span>
-						</div>
-					</div>
+                    <div class="col-md-3">
+                        <div class="card-counter danger">
+                            <i class="fa fa-ticket"></i>
+                            <span class="count-numbers">4</span>
+                            <span class="count-name">Rechazados</span>
+                        </div>
+                    </div>
 
-					<div class="col-md-3">
-						<div class="card-counter danger">
-							<i class="fa fa-ticket"></i>
-							<span class="count-numbers">4</span>
-							<span class="count-name">Rechazados</span>
-						</div>
-					</div>
+                    <div class="col-md-3">
+                        <div class="card-counter success">
+                            <i class="fa fa-database"></i>
+                            <span class="count-numbers">@Model.listaRegistros.Count</span>
+                            <span class="count-name">Correos</span>
+                        </div>
+                    </div>
 
-					<div class="col-md-3">
-						<div class="card-counter success">
-							<i class="fa fa-database"></i>
-							<span class="count-numbers">@Model.listaRegistros.Count</span>
-							<span class="count-name">Correos</span>
-						</div>
-					</div>
+                    <div class="col-md-3">
+                        <div class="card-counter info">
+                            <i class="fa fa-users"></i>
+                            <span class="count-numbers">5</span>
+                            <span class="count-name">Aceptados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-					<div class="col-md-3">
-						<div class="card-counter info">
-							<i class="fa fa-users"></i>
-							<span class="count-numbers">5</span>
-							<span class="count-name">Acceptados</span>
-						</div>
-					</div>
-				</div>
-			</div>
+            <!-- User message -->
+            <div class="container">
+                <div class="col">
+                    <div class="card mb-3">
+                        <img src="/images/dashboard-img.svg" class="card-img-top d-none d-sm-block pt-2" alt="dashboard-image" height="250" width="308">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">¡Bienveido de vuelta!</h3>
+                            <p class="card-text lead responsive-font-example-p">Hola, <b>¡@User.Identity.Name!</b></p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <i class="far fa-calendar-alt"></i> @DateTime.Now
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<!-- User message -->
+            <!-- Datatable -->
+            <div class="container border p-3 mb-3 mx-xl-auto ml-lg-2 ml-md-2 ml-sm-auto">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive table-hover">
+                            <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Fecha creación</th>
+                                        <th>Fecha actualización</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach (var item in Model.listaRegistros)
+                                    {
+                                        <tr>
+                                            <th>
+                                                @item.facn_id
+                                            </th>
+                                            <th>
+                                                @item.facd_fechacreacion
+                                            </th>
+                                            <th>
+                                                @item.facd_fechaactualizacion
+                                            </th>
+                                            <th>
+                                                <!-- Ver detalles -->
+                                                <button type="button" class="btn btn-custom btn-primary" data-toggle="modal" data-target="#modalDetalles">
+                                                    <i class="far fa-eye"></i><span class="hidden"> Detalles</span>
+                                                </button>
+                                                <!-- Borrar -->
+                                                <button type="button" class="btn btn-custom btn-danger" data-toggle="modal" data-target="#modalBorrar">
+                                                    <i class="fas fa-trash-alt"></i><span class="hidden"> Borrar</span>
+                                                </button>
+                                            </th>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-		<div class="container">
-				<div class="col">
-					<div class="card mb-3">
-						<img src="/images/dashboard-img.svg" class="card-img-top d-none d-sm-block pt-2" alt="dashboard-image" height="250" width="308">
-						<div class="card-body">
-							<h3 class="card-title">¡Bienveido de vuelta!</h3>
-							<p class="card-text">Hola <b>¡@User.Identity.Name!</b></p>
-							<p class="card-text">
-								<small class="text-muted">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
-										<path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
-										<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-									</svg> @DateTime.Now
-								</small>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+            <!-- Modal -->
+            <div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="modalDetallesLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalDetallesLabel">Descripción</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Fecha de creación:</p>
+                            <p>Fecha de creación: 2021-10-21</p>
+                            <p>De: mesadeayuda@gmail.com</p>
+                            <p>Asunto:</p>
+                            <p>Este correo fue enviado para atender su solicitud de ayuda con el ID 1 con el motivo .....</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<!-- Datatable -->
+            <!-- Modal -->
+            <div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="modalBorrarLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalBorrarLabel">¿Eliminar?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="lead">¿Estas seguro de querer borrar este elemento?</p>
+                            <p class="text-muted">Esta acción es irreversible</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" id="btnBorrarModal" data-dismiss="modal">Borrar</button>
+                            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-		<div class="container border box-shadow p-2 mb-1">
-				<table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>Fecha creación</th>
-							<th>Fecha actualización</th>
-							<th>Acciones</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach (var item in Model.listaRegistros)
-						{
-							<tr>
-								<th>
-									@item.facn_id
-								</th>
-								<th>
-									@item.facd_fechacreacion
-								</th>
-								<th>
-									@item.facd_fechaactualizacion
-								</th>
-								<th>
-									<!-- Ver detalles -->
-							<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalDetalles">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-											<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-											<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-										</svg>
-									</button>
-									<!-- Borrar -->
-							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalBorrar">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-											<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-											<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-										</svg>
-									</button>
-								</th>
-							</tr>
-						}
-					</tbody>
-				</table>
-			</div>
+            <!-- Back to top arrow -->
+            <a id="back-to-top" href="#" class="btn btn-outline-primary border-0 btn-xl back-to-top mb-5" role="button" title="Volver arriba"><i class="fas fa-chevron-up"></i></a>
+        </div>
+    </div>
 
-			<!-- Modal -->
-		<div class="modal fade" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="modalDetallesLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="modalDetallesLabel">Descripción</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<p>Fecha de creación: 2021-10-21</p>
-							<p>De: mesadeayuda@gmail.com</p>
-							<p>Asunto:</p>
-							<p>Este correo fue enviado para atender su solicitud de ayuda con el ID 1 con el motivo .....</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cerrar</button>
-						</div>
-					</div>
-				</div>
-			</div>
+    <!-- Scripts -->
+    @section Scripts {
+        <script type="text/javascript">
+            // llamar al dataTable
+            $(document).ready(function () {
+                var table = $('#myTable').DataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
+                    },
+                    responsive: true,
+                    dom: 'lfBrtip',
+                    buttons: [
+                        {
+                            extend: 'copyHtml5',
+                            text: '<i class="fas fa-copy"></i><span class="hidden"> Copiar</span>',
+                            titleAttr: 'Copiar al portapapeles',
+                            className: 'btn btn-custom btn-primary'
+                        },
+                        {
+                            extend: 'excelHtml5',
+                            text: '<i class="fas fa-file-excel"></i><span class="hidden"> Excel</span>',
+                            titleAttr: 'Exportar a Excel',
+                            className: 'btn btn-custom btn-success'
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            text: '<i class="fas fa-file-csv"></i><span class="hidden"> CSV</span>',
+                            titleAttr: 'Exportar a Excel',
+                            className: 'btn btn-custom btn-success'
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            text: '<i class="fas fa-file-pdf"></i><span class="hidden"> PDF</span>',
+                            titleAttr: 'Exportar a PDF',
+                            className: 'btn btn-custom btn-danger'
+                        },
+                        {
+                            extend: 'print',
+                            text: '<i class="fa fa-print"></i><span class="hidden"> Imprimir</span>',
+                            titleAttr: 'Imprimir',
+                            className: 'btn btn-custom btn-info'
+                        },
+                        {
+                            extend: 'colvis',
+                            text: '<i class="fas fa-eye"></i><span class="hidden"> Mostrar</span>',
+                            titleAttr: 'Visibilidad'
+                        }
+                    ]
+                });
 
-			<!-- Modal -->
-		<div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="modalBorrarLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="modalBorrarLabel">¿Eliminar?</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<p class="lead">¿Estas seguro de querer borrar este elemento?</p>
-							<p class="text-muted">Esta acción es irreversible</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-outline-danger" id="btnBorrarModal" data-dismiss="modal">Borrar</button>
-							<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancelar</button>
-						</div>
-					</div>
-				</div>
-			</div>
+                new $.fn.dataTable.FixedHeader(table);
 
-			<!-- Back to top arrow -->
+            });
+        </script>
+        <!-- SweetAlert -->
+        <script type="text/javascript">
 
-		<a id="back-to-top" href="#" class="btn btn-outline-primary border-0 btn-xl back-to-top mb-5" role="button" title="Volver arriba"><i class="fas fa-chevron-up"></i></a>
+            $('#btnBorrarModal').click(function () {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
 
-			@section Scripts {
-		<script>
-			// llamar al dataTable
-			$(document).ready(function () {
-				var table = $('#myTable').DataTable({
-					"language": {
-						"url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json",
-						responsive: true,
-					},
-
-					dom: 'lBfrtip',
-					buttons: [
-						'copy', 'csv', 'excel', 'pdf', 'print', 'colvis'
-					]
-				});
-
-				new $.fn.dataTable.FixedHeader(table);
-
-			});
-		</script>
-
-		<script>
-			const Toast = Swal.mixin({
-				toast: true,
-				position: 'top-end',
-				showConfirmButton: false,
-				timer: 3000,
-				timerProgressBar: true,
-				didOpen: (toast) => {
-					toast.addEventListener('mouseenter', Swal.stopTimer)
-					toast.addEventListener('mouseleave', Swal.resumeTimer)
-				}
-			})
-
-			Toast.fire({
-				icon: 'success',
-				title: '¡Inicio de sesión exitoso!'
-			})
-		</script>
-
-		<script>
-			$('#btnBorrarModal').click(function () {
-				const Toast = Swal.mixin({
-					toast: true,
-					position: 'bottom-end',
-					showConfirmButton: false,
-					timer: 3000,
-					timerProgressBar: true,
-					didOpen: (toast) => {
-						toast.addEventListener('mouseenter', Swal.stopTimer)
-						toast.addEventListener('mouseleave', Swal.resumeTimer)
-					}
-				})
-
-				Toast.fire({
-					icon: 'success',
-					title: 'Elemento borrado'
-				});
-			});
-		</script>
-		}
-
-		</div>
-	</div>
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Elemento borrado'
+                });
+            });
+        </script>
+    }
 
 }
 else
 {
 
-	<!-- Header-->
-	<div class="container-fluid px-0 d-none d-md-block pt-3">
-		<div id="carouselIndex" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselIndex" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselIndex" data-slide-to="1"></li>
-				<li data-target="#carouselIndex" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100 h-75" src="~/images/carousel-img.svg" alt="First slide">
-					<div class="carousel-caption d-none d-md-block mt-5">
-						<h3 class="font-weight-bold text-dark">¡Recibe!</h3>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100 h-75" src="~/images/carousel-img-2.svg" alt="Second slide">
-					<div class="carousel-caption d-none d-md-block mt-5">
-						<h3 class="font-weight-bold text-dark">¡Envía!</h3>
-					</div>
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100 h-75" src="~/images/carousel-img-3.svg" alt="Third slide">
-					<div class="carousel-caption d-none d-md-block text-black-50 mt-5">
-						<a class="btn-sm button-59 text-decoration-none" href="#scroll">¡Ver más!</a>
-					</div>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselIndex" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Anterior</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselIndex" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Siguiente</span>
-			</a>
-		</div>
+    <!-- Carousel - Header-->
+    <div id="carouselIndex" class="carousel slide d-none d-lg-block" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselIndex" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndex" data-slide-to="1"></li>
+            <li data-target="#carouselIndex" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="mask flex-center">
+                    <div class="container">
+                        <div class="row align-items-center p-lg-5">
+                            <div class="col-md-7 col-12 order-md-1 order-2">
+                                <h4 class="text-white">
+                                    Present your <br>
+                                    awesome product
+                                </h4>
+                                <p class="text-white">
+                                    Lorem ipsum dolor sit amet. Reprehenderit<br>
+                                    necessitatibus praesentium voluptatum deleniti atque corrupti.
+                                </p>
+                                <a class="btn btn-custom btn-light btn-lg" href="#scroll">¡Ver más!</a>
+                            </div>
+                            <div class="col-md-5 col-12 order-md-2 order-1"><figure><img src="https://i.imgur.com/NKvkfTT.png" class="mx-auto" alt="slide"></figure></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mask flex-center">
+                    <div class="container">
+                        <div class="row align-items-center p-lg-5">
+                            <div class="col-lg-7 col-md-7 col-12 order-md-1 order-2">
+                                <h4 class="text-white">
+                                    Present your <br>
+                                    awesome product
+                                </h4>
+                                <p class="text-white">
+                                    Lorem ipsum dolor sit amet. Reprehenderit<br>
+                                    necessitatibus praesentium voluptatum deleniti atque corrupti.
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-12 order-md-2 order-1"><figure><img src="https://i.imgur.com/duWgXRs.png" class="mx-auto" alt="slide"></figure></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="mask flex-center">
+                    <div class="container">
+                        <div class="row align-items-center p-lg-5">
+                            <div class="col-lg-7 col-md-7 col-12 order-md-1 order-2">
+                                <h4 class="text-white">
+                                    Present your <br>
+                                    awesome product
+                                </h4>
+                                <p class="text-white">
+                                    Lorem ipsum dolor sit amet. Reprehenderit<br>
+                                    necessitatibus praesentium voluptatum deleniti atque corrupti.
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-12 order-md-2 order-1"><figure><img src="https://i.imgur.com/DGkR4OQ.png" class="mx-auto" alt="slide"></figure></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselIndex" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselIndex" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+    <!--slide end-->
 
-	</div>
+    <!-- Content section 1-->
+    <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><figure><img class="img-fluid rounded-circle custom-bx-shadow" src="/images/index-image-4.svg" alt="Index image-1" id="index-image-1" /></figure></div>
+                </div>
+                <div class="col-lg-6 order-lg-1 border mb-md-5 mb-sm-5 custom-shadow hover-box-shadow">
+                    <div class="p-sm-5">
+                        <h2 class="font-weight-bold responsive-font-example">Ten el control</h2><br />
+                        <h5 class="d-none d-md-block"><b>¿Quieres tener un registro de tus facturas?</b></h5>
+                        <p class="text-justify responsive-font-example-p">Con las opciones de manejo de tus facturas, podras llevar un registro del estado de tus facturas.<br /> Podras visualizar los precios de las distintas facturas, enviarlas y manipularlas de acuerdo a tus necesidades</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Content section 2-->
+    <section class="position-relative bg-light">
+        <div class="custom-shape-divider-bottom-1635230231">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-5"><figure><img class="img-fluid rounded-circle custom-bx-shadow" src="/images/index-img-2.svg" alt="Index image-2"></figure></div>
+                </div>
+                <div class="col-lg-6 my-xl-auto my-lg-2 my-md-2 mb-sm-2 border bg-white custom-shadow hover-box-shadow">
+                    <div class="p-sm-5">
+                        <h2 class="display-4 font-weight-bold responsive-font-example">¡Manipula tus facturas!</h2><br />
+                        <h5 class="d-none d-md-block"><b>¿Deseas revisar a detalle tus facturas?</b></h5>
+                        <p class="text-justify responsive-font-example-p">Utilizando las opciones de manipulación puedes revisar a detalle tus facturas y aceptarlas o rechazarlas, además de poder analizarlas a tu gusto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- Content section 1-->
-	<section id="scroll">
-		<div class="container px-5">
-			<div class="row gx-5 align-items-center">
-				<div class="col-lg-6 order-lg-2">
-					<div class="p-5"><img class="img-fluid rounded-circle" src="/images/index-image-4.svg" alt="Index image-1" id="index-image-1" /></div>
-				</div>
-				<div class="col-lg-6 order-lg-1">
-					<div class="p-sm-5">
-						<h2 class="font-weight-bold responsive-font-example">Ten el control</h2><br />
-						<h5 class="d-none d-md-block"><b>¿Quieres tener un registro de tus facturas?</b></h5>
-						<p class="text-justify responsive-font-example-p">Con las opciones de manejo de tus facturas, podras llevar un registro del estado de tus facturas.<br /> Podras visualizar los precios de las distintas facturas, enviarlas y manipularlas de acuerdo a tus necesidades</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- Content section 3-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><figure><img class="img-fluid rounded-circle custom-bx-shadow" src="/images/index-img-3.svg" alt="Index image-3" /></figure></div>
+                </div>
+                <div class="col-lg-6 order-lg-1 border mb-md-5 mb-sm-5 custom-shadow hover-box-shadow">
+                    <div class="p-sm-5">
+                        <h2 class="display-4 font-weight-bold responsive-font-example">¿Servicio de mensajería?</h2><br />
+                        <p class="text-justify responsive-font-example-p">Para facilitar tu comunicación con los demás usuarios, ¡contaras con el envío y recibo de correos electronicos para agilizar tus procesos de gestión!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- Content section 2-->
-	<section>
-		<div class="container px-5">
-			<div class="row gx-5 align-items-center">
-				<div class="col-lg-6">
-					<div class="p-5"><img class="img-fluid rounded-circle justify-content-center" src="/images/index-img-2.svg" alt="Index image-2"></div>
-				</div>
-				<div class="col-lg-6">
-					<div class="p-sm-5">
-						<h2 class="display-4 font-weight-bold responsive-font-example">¡Manipula tus facturas!</h2><br />
-						<h5 class="d-none d-md-block"><b>¿Deseas revisar a detalle tus facturas?</b></h5>
-						<p class="text-justify responsive-font-example-p">Utilizando las opciones de manipulación puedes revisar a detalle tus facturas y aceptarlas o rechazarlas, además de poder analizarlas a tu gusto</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Content section 3-->
-	<section>
-		<div class="container px-5">
-			<div class="row gx-5 align-items-center">
-				<div class="col-lg-6 order-lg-2">
-					<div class="p-5"><img class="img-fluid rounded-circle" src="/images/index-img-3.svg" alt="Index image-3" /></div>
-				</div>
-				<div class="col-lg-6 order-lg-1">
-					<div class="p-sm-5">
-						<h2 class="display-4 font-weight-bold responsive-font-example">¿Servicio de mensajería?</h2><br />
-						<p class="text-justify responsive-font-example-p">Para facilitar tu comunicación con los demás usuarios, ¡contaras con el envío y recibo de correos electronicos para agilizar tus procesos de gestión!</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Back to top arrow -->
-
-	<a id="back-to-top" href="#" class="btn btn-outline-primary border-0 btn-xl back-to-top mb-5" role="button" title="Volver arriba"><i class="fas fa-chevron-up"></i></a>
+    <!-- Back to top arrow -->
+    <a id="back-to-top" href="#" class="btn btn-outline-primary border-0 btn-xl back-to-top mb-5" role="button" title="Volver arriba"><i class="fas fa-chevron-up"></i></a>
 
 }
 

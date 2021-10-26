@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -52,6 +53,7 @@ namespace Equitool.Controllers
                         modelFacturation.listaRegistros = new List<fac_facturacion>();
                         modelFacturation.respuestaError = null;
                         await _signInManager.SignOutAsync();
+                        HttpContext.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
 
                         return View("Index", modelFacturation);
                     }
@@ -86,7 +88,7 @@ namespace Equitool.Controllers
                 {
                     var resultado = _tokenGmail.GetTokenUsuario(userId);
                     if (resultado != null)
-                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", resultado.tokc_tokenusuario);
+                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", _IFacturacion.Base64Decode(resultado.tokc_tokenusuario));
                     else
                         variable = false;
                 }
@@ -123,7 +125,7 @@ namespace Equitool.Controllers
                         {
                             client.Connect("imap.gmail.com", 993, true, cancel.Token);
                             client.AuthenticationMechanisms.Remove("XOAUTH");
-                            client.Authenticate(this.User.Identity.Name, _IFacturacion.Base64Decode(strContraseña));
+                            client.Authenticate(this.User.Identity.Name, (strContraseña));
                             client.Inbox.Open(FolderAccess.ReadOnly);
                             var mensajes = client.Inbox;
 

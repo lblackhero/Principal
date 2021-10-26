@@ -28,5 +28,7 @@ namespace EquiTool.Aplication
         public IdentityUser GetUserByEMail(string email);
 
         public string AddRol(string rol);
+
+        public string DeleteRol(string rol);
     }
 }

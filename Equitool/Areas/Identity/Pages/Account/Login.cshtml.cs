@@ -57,14 +57,14 @@ namespace Equitool.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "El email es obligatorio")]
+            [Required(ErrorMessage = "Introduce un {0}")]
             [EmailAddress]
-            [Display(Name = "Correo electrónico")]
+            [Display(Name = "correo electrónico")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "La contraseña es obligatoria")]
+            [Required(ErrorMessage = "No has escrito tu {0}")]
             [DataType(DataType.Password)]
-            [Display(Name = "Contraseña")]
+            [Display(Name = "contraseña")]
             public string Password { get; set; }
 
             [Display(Name = "Recuerdame")]
@@ -101,7 +101,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User logged in.");
 
-                    _httpContextAccessor.HttpContext.Session.SetString("SessionVar", _IFacturacion.Base64Encode(Input.Password));
+                    _httpContextAccessor.HttpContext.Session.SetString("SessionVar", (Input.Password));
 
                     return LocalRedirect(returnUrl);
 
@@ -117,7 +117,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Inicio de sesión invalido, por favor contacte soporte o revise su correo.");
+                    ModelState.AddModelError(string.Empty, "Inicio de sesión invalido, por favor verifique las credenciales.");
                     return Page();
                 }
             }

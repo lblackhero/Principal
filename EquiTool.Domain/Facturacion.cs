@@ -231,5 +231,31 @@ namespace EquiTool.Domain
                 throw;
             }
         }
+
+        public string DeleteRol(string rol)
+        {
+            string strRespuesta = null;
+
+            try
+            {
+                if (_context.Roles.Any(x => x.Name.ToLower().Trim().Contains(rol.ToLower().Trim())))
+                {
+                    var entityToRemove = _context.Roles.FirstOrDefault(x => x.Name.ToLower().Trim().Equals(rol.ToLower().Trim()));
+                    _context.Roles.Remove(entityToRemove);
+
+                    _context.SaveChanges();
+                    strRespuesta = "Rol eliminado correctamente";
+                }
+                else
+                    strRespuesta = string.Concat("No existe el: ", rol);
+                return strRespuesta;
+
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -11,7 +11,6 @@ namespace Equitool.Models
         public List<IdentityRole> roles { get; set; }
 
         public string respuesta;
-
         public List<string> rolesUsuario { get; set; }
     }
 
