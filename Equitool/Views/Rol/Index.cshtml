@@ -1,51 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Gestionar rol";
+    ViewData["Title"] = "Gestionar roles";
 }
 
 @model Equitool.Models.RoleModel
 
 @if (this.User.IsInRole("Administrador"))
 {
-    <div class="d-flex" id="wrapper">
+    <br />
+    <div class="container">
+        <h2 class="text-center text-dark p-2 bg-white headings__boxshadow--dark"> @ViewData["Title"]</h2>
+    </div>
 
-        <!-- Sidebar-->
-        <div class="d-flex">
-            <div class="border-end bg-white" style="border-right: 1px solid #e5e5e5;" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom text-center"><i class="fas fa-align-justify"></i> Secciones</div>
-                <div class="list-group list-group-flush text-left">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-action="Index" asp-controller="">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
+
+    <div class="container justify-content-center align-items-center mt-4">
+        <!-- Nav navigation -->
+        <div role="tablist" aria-owns="pills-home-tab pills-profile-tab">
+            <ul class="nav nav-pills nav-fill flex-column flex-sm-row justify-content-center nav-pills__nav-item--boxShadow" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                       aria-controls="pills-home" aria-selected="true">
+                        <i class="fas fa-user-edit"></i> Dar un rol a un usuario
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
-                        <i class="fas fa-tasks"></i> Gestión
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                       aria-controls="pills-profile" aria-selected="false">
+                        <i class="fas fa-plus"></i> Crear un nuevo rol
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
-                        <i class="far fa-envelope"></i> Email
-                    </a>
-                    @if (User.IsInRole("Administrador") || User.IsInRole("administrador"))
-                    {
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-action="Index" asp-controller="Rol">
-                            <i class="fas fa-user-tag"></i> Roles
-                        </a>
-                    }
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
 
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
+        <!-- Tab content -->
 
-            <!-- Top navigation-->
-
-            <div class="pl-2 pt-2 d-inline" id="container">
-                <a class="btn" id="sidebarToggle" role="button"><i id="icon" class="fa fa-arrow-left"></i></a>
-            </div>
-
-            <h1 class="text-center"> @ViewData["Title"]</h1>
-
-            <div class="container">
-                <div class="row ml-xl-auto ml-lg-auto ml-md-1 ml-sm-auto mb-3">
-                    <div class="col-12 border p-3">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="raised-blocks">
+                    <!-- FORMULARIO DAR ROL A UN USUARIO -->
+                    <div class="col border p-xl-5 p-lg-4 p-md-3 p-sm-2 mt-3 mb-5">
                         <h3 class="text-center">Dar rol a un usuario</h3>
                         <hr />
                         <form method="post">
@@ -57,9 +49,9 @@
                                 <div class="checkbox">
                                     @foreach (var item in Model.roles)
                                     {
-                                        <div class="form-check form-check-inline">
+                                        <div class="form-check">
                                             <input class="form-check-input"
-                                                   type="checkbox"
+                                                   type="radio"
                                                    value="@item.Name"
                                                    id="flexCheckDefault"
                                                    name="RolSeleccionado" />
@@ -71,70 +63,69 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-outline-primary" asp-action="AddUsuarioRol">Adicionar usuario a rol</button>
+                                <button type="submit" class="btn btn-custom btn-primary btn-block btn-lg text-sm-center" asp-action="AddUsuarioRol">Adicionar usuario a rol</button>
                             </div>
                         </form>
                     </div>
-                </div>
-
-                @if (Model.respuesta != null)
-                {
-                    <label>@Model.respuesta</label>
-                }
-
-
-                <div class="row ml-xl-auto ml-lg-auto ml-md-1 ml-sm-auto mb-3">
-                    <div class="col-12 border p-3">
-                        <h3 class="text-center">Añadir un nuevo rol</h3>
-                        <hr />
-                        <form method="post" id="addRolForm">
-                            <div class="form-group">
-                                <label for="NombreRol">Rol</label>
-                                <input type="text" class="form-control shadow-none" id="NombreRol" name="Rol" placeholder="Rol a adicionar" required>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-outline-primary" id="btnAddRol" asp-action="AddRol">Adicionar Rol</button>
-                            </div>
-                        </form>
-                    </div>
+                    <!-- FIN FORMULARIO ROL A USUARIO -->
                 </div>
             </div>
 
-            <div class="container border p-3 mb-3 mx-xl-auto ml-lg-2 ml-md-2 ml-sm-auto">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="table-responsive table-hover">
-                            <table id="tablaRoles" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-                                <thead class="text-center">
-                                    <tr>
-                                        <th>Nombre del rol</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-center">
-                                    @foreach (var item in Model.roles)
-                                    {
-                                        <tr>
-                                            <th>
-                                                @item.Name
-                                            </th>
-                                            <th>
-                                                <!-- Borrar -->
-                                                <form method="post">
-                                                    <button type="submit" class="btn btn-danger" name="btnBorrar" onclick="showMessageDelete(@Model.respuesta)" asp-action="DeleteRol" asp-route-rol="@item.Name"><i class="fas fa-trash-alt"></i><span class="hidden"> Borrar</span></button>
-                                                </form>
-                                            </th>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <!-- FORMULARIO CREAR ROL -->
+                <div class="col border p-xl-5 p-lg-4 p-md-3 p-sm-2 mt-3 mb-5">
+                    <h3 class="text-center">Añadir un nuevo rol</h3>
+                    <hr />
+                    <form method="post" id="addRolForm">
+                        <div class="form-group">
+                            <label for="NombreRol">Rol</label>
+                            <input type="text" class="form-control shadow-none" id="NombreRol" name="Rol" placeholder="Rol a adicionar" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-custom btn-primary rounded-0 btn-block btn-lg" id="btnAddRol" asp-action="AddRol">Adicionar Rol</button>
+                        </div>
+                    </form>
+                    <!-- FIN FORMULARIO CREAR ROL -->
                 </div>
             </div>
-
         </div>
     </div>
+
+    <!-- DATATABLE -->
+
+    <div class="container border p-3 mb-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive table-hover">
+                    <table id="tablaRoles" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Nombre del rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @foreach (var item in Model.roles)
+                            {
+                                <tr>
+                                    <th>
+                                        @item.Name
+                                    </th>
+                                    <th>
+                                        <!-- Borrar -->
+                                        <form method="post">
+                                            <button type="submit" class="btn btn-custom btn-danger" name="btnBorrar" onclick="showMessageDelete(@Model.respuesta)" asp-action="DeleteRol" asp-route-rol="@item.Name"><i class="fas fa-trash-alt"></i><span class="hidden-small"> Borrar</span></button>
+                                        </form>
+                                    </th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
 
 @section Scripts {
@@ -181,12 +172,6 @@
                 }
             }
 
-            else{
-                Toast.fire({
-                    title: '@Html.Raw(Model.respuesta)',
-                    icon: 'success'
-                })
-            }
 
         });
     </script>

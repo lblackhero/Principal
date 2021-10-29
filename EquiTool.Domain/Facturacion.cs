@@ -141,7 +141,7 @@ namespace EquiTool.Domain
                 _context.SaveChanges();
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -185,7 +185,6 @@ namespace EquiTool.Domain
 
             return lista;
         }
-
 
         public IdentityUser GetUserByEMail(string email)
         {

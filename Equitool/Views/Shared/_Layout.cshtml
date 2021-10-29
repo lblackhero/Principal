@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/f233c04d27.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-white navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow p-0" id="nav-container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
@@ -31,19 +32,88 @@
         </div>
     </nav>
 
-    <!-- Body -->
-    <div class="container-fluid px-0">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="d-flex hidden-medium">
+                <div class="border-end bg-white container__element--boxShadow hidden-medium" id="sidebar-wrapper">
+                    <div class="sidebar-heading border-bottom text-center"> Secciones</div>
+                    <div class="list-group list-group-flush text-left">
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                            <i class="fas fa-tasks"></i> Gestión
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                            <i class="far fa-envelope"></i> Email
+                        </a>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-action="Index" asp-controller="Rol">
+                                <i class="fas fa-user-tag"></i> Roles
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
 
-    <!-- Footer -->
-    <footer class="border-top footer text-muted" id="footer">
-        <div class="container">
-            &copy; 2021 - Equitool - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+            <!-- Navigation menu small screen-->
+            <div id="mySidenav" class="sidenav d-inline d-md-none sidenav-hidden">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-tasks" aria-hidden="true"></i> Gestión</a>
+                <a href="#"><i class="far fa-envelope"></i> Email</a>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <a asp-controller="Rol" asp-action="Index"><i class="fas fa-user-tag"></i> Roles</a>
+                }
+            </div>
+
+            <!-- Back to top arrow -->
+            <a id="back-to-top" href="#" class="btn btn-outline-primary border-0 btn-xl back-to-top ml-3 hidden-large" role="button" title="Volver arriba"><i class="fas fa-chevron-up"></i></a>
+
+            <!-- Page content wrapper -->
+            <div class="px-0" id="page-content-wrapper">
+                <!-- Toggle menu button arrow -->
+                <div class="pl-2 pt-2 d-inline hidden-medium float-left" id="containerArrow" role="link" aria-label="name">
+                    <a class="btn d-none d-sm-block" id="sidebarToggle" role="button"><i id="icon" class="fa fa-arrow-left"></i></a>
+                </div>
+                <!-- Menu button small screen-->
+                <div class="mt-2 mb-2 d-flex align-content-center justify-content-center">
+                    <a id="btnMenu" class="btn btn-custom-2 btn-lg d-inline d-md-none" onclick="openNav()"><i class="fas fa-bars"></i> Menú</a>
+                </div>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
         </div>
-    </footer>
+
+        // Eliminar margen cuando este logueado
+        <script type="text/javascript">
+            document.body.classList.add('m-0');
+        </script>
+
+    }
+    else
+    {
+        <!-- Body -->
+        <div class="container-fluid px-0">
+            <main role="main">
+                @RenderBody()
+            </main>
+            <!-- Back to top arrow -->
+            <a id="back-to-top" href="#" class="btn btn-outline-primary border-0 btn-xl mb-5 back-to-top" role="button" title="Volver arriba"><i class="fas fa-chevron-up"></i></a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-top footer text-muted" id="footer">
+            <div class="container">
+                &copy; 2021 - Equitool - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+            </div>
+        </footer>
+    }
 
     <!-- Bootstrap library -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -57,6 +127,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @RenderSection("Scripts", required: false)
+
+    <script type="text/javascript">
+
+
+    </script>
 
 </body>
 </html>

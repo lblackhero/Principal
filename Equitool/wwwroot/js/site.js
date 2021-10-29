@@ -20,6 +20,13 @@ $(document).ready(function () {
         }, 400);
         return false;
     });
+
+    $("[href]").each(function () {
+        if (this.href == window.location.href) {
+            $(this).addClass("active");
+        }
+    });
+
 });
 
 (function () {
@@ -68,4 +75,12 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 })(document);
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 

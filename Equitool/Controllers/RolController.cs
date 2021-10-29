@@ -110,7 +110,7 @@ namespace Equitool.Controllers
                 if (!string.IsNullOrEmpty(rol))
                 {
                     string strRespuesta = _IFacturacion.AddRol(rol);
-                    model.respuesta = "1;" + strRespuesta;
+                    model.respuesta = "0;" + strRespuesta;
                 }
                 else
                     model.respuesta = "1;Digite un rol valido";
