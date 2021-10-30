@@ -61,10 +61,8 @@ namespace Equitool.Controllers
                     {
 
                         ModeloFacturacion modeloFacturacion = new ModeloFacturacion();
-                        if (_status != null)
-                            while (!_status.IsCompleted) { };
 
-                        modeloFacturacion.listaRegistros = _IFacturacion.GetFacturacion(userId);
+                        modeloFacturacion.listaRegistros = new List<fac_facturacion>();
                         modeloFacturacion.respuestaError = null;
 
                         return View("Index", modeloFacturacion);
@@ -79,6 +77,7 @@ namespace Equitool.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         private bool GetCorreosUsuario(string userId)
         {
             bool variable = true;
@@ -103,7 +102,8 @@ namespace Equitool.Controllers
                 if (variable)
                 {
                     string contraseña = _httpContextAccessor.HttpContext.Session.GetString("SessionVar");
-                    _status = AddCorreosAsync(contraseña, userId);
+                    _status = AddCorreosAsync(this.User.Identity.Name, contraseña, userId);
+                    while (!_status.IsCompleted) { };
                 }
             }
             catch
@@ -113,7 +113,7 @@ namespace Equitool.Controllers
             return variable;
         }
 
-        private Task AddCorreosAsync(string strContraseña, string userId)
+        private Task AddCorreosAsync(string userName, string strContraseña, string userId)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace Equitool.Controllers
                         {
                             client.Connect("imap.gmail.com", 993, true, cancel.Token);
                             client.AuthenticationMechanisms.Remove("XOAUTH");
-                            client.Authenticate(this.User.Identity.Name, (strContraseña));
+                            client.Authenticate(userName, strContraseña);
                             client.Inbox.Open(FolderAccess.ReadOnly);
                             var mensajes = client.Inbox;
 
@@ -134,17 +134,21 @@ namespace Equitool.Controllers
                             {
                                 var message = mensajes.GetMessage(i, cancel.Token);
 
-                                lista.Add(new fac_facturacion()
+                                //Verifico si el correo tiene adjunto
+                                if (message.Body.IsAttachment)
                                 {
-                                    Aspnet_UserId = userId,
-                                    facb_estado = true,
-                                    facc_descripcion = string.IsNullOrEmpty(message.TextBody == "" ? null : message.TextBody) ? ("Sin Descripción") : message.TextBody,
-                                    facc_repositorio = "",
-                                    facd_fechacreacion = DateTime.Now,
-                                    facc_desde = message.From.ToString(),
-                                    facc_para = message.To.ToString(),
-                                    facc_idcorreounico = message.MessageId.ToString()
-                                });
+                                    lista.Add(new fac_facturacion()
+                                    {
+                                        Aspnet_UserId = userId,
+                                        facb_estado = true,
+                                        facc_descripcion = string.IsNullOrEmpty(message.TextBody == "" ? null : message.TextBody) ? ("Sin Descripción") : message.TextBody,
+                                        facc_repositorio = "",
+                                        facd_fechacreacion = DateTime.Now,
+                                        facc_desde = message.From.ToString(),
+                                        facc_para = message.To.ToString(),
+                                        facc_idcorreounico = message.MessageId.ToString()
+                                    });
+                                }
                             }
                             _IFacturacion.Adfacturas(lista);
                         }
@@ -154,6 +158,26 @@ namespace Equitool.Controllers
             catch
             {
                 throw;
+            }
+        }
+
+        public IActionResult GetCorreos()
+        {
+            try
+            {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                ModeloFacturacion modeloFacturacion = new ModeloFacturacion();
+
+                modeloFacturacion.listaRegistros = _IFacturacion.GetFacturacion(userId);
+                modeloFacturacion.respuestaError = null;
+
+                return View("Index", modeloFacturacion);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
     }

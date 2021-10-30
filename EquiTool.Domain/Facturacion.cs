@@ -119,7 +119,7 @@ namespace EquiTool.Domain
             {
                 List<fac_facturacion> lista = new List<fac_facturacion>();
 
-                var result = _context.fac_facturacion.Any(x => x.facn_id > 0);
+                var result = _context.fac_facturacion.Any(x => x.facn_id > 0); 
                 int fac_id = 0;
                 if (result)
                     fac_id = (_context.fac_facturacion.ToList().LastOrDefault().facn_id + 1);

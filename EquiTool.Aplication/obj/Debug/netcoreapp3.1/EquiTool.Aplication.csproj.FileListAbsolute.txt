@@ -22,3 +22,4 @@ C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreap
 C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.csproj.CoreCompileInputs.cache
 C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.dll
 C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.pdb
+C:\Users\Jonathan\source\repos\Principal\EquiTool.Aplication\obj\Debug\netcoreapp3.1\EquiTool.Aplication.csproj.CopyComplete

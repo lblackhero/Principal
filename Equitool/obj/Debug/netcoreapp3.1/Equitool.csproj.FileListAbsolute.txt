@@ -419,7 +419,6 @@ C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equito
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.RazorAssemblyInfo.cache
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.RazorAssemblyInfo.cs
-C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\scopedcss\bundle\Equitool.styles.css
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\staticwebassets\Equitool.StaticWebAssets.Manifest.cache
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\staticwebassets\Equitool.StaticWebAssets.xml
 C:\Users\Jonathan\source\repos\Principal\Equitool\obj\Debug\netcoreapp3.1\Equitool.TagHelpers.input.cache
