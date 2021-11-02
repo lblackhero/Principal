@@ -475,6 +475,15 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 }
 
 /* ---------------------------------------- MEDIA QUERIES ------------------------------------------------ */
+
+/* Hiding in extra large size */
+@media (max-width: 1520px) {
+    .hidden-xlarge {
+        visibility: hidden;
+        display: none;
+    }
+}
+
 /* Adding more margin in the login section between form and nav*/
 @media only screen and (min-width: 1300px) {
     .form__border--boxShadow {
@@ -520,7 +529,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     }
 }
 
-/* Hidding elements in medium size*/
+/* Hiding elements in medium size*/
 @media (max-width: 767px) {
     .hidden-medium {
         visibility: hidden;
