@@ -102,6 +102,7 @@ namespace Equitool.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
 
                     _httpContextAccessor.HttpContext.Session.SetString("SessionVar", (Input.Password));
+                    _httpContextAccessor.HttpContext.Session.SetString("IsFirstLogin", "OK");
 
                     return LocalRedirect(returnUrl);
 

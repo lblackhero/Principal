@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -47,6 +48,19 @@ namespace Equitool.Controllers
                 if (User.Identity.IsAuthenticated)
                 {
                     var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                    if (_httpContextAccessor.HttpContext.Session.GetString("IsFirstLogin") != null)
+                    {
+                        if (_httpContextAccessor.HttpContext.Session.GetString("IsFirstLogin").ToString().Equals("OK"))
+                        {
+                            tok_tokengmail Token = new tok_tokengmail();
+                            Token.aspnet_userid = userId;
+                            Token.tokc_tokenusuario = _IFacturacion.Base64Encode(_httpContextAccessor.HttpContext.Session.GetString("SessionVar"));
+                            Token.tokd_fechacreacion = DateTime.Now;
+                            bool resultado = _tokenGmail.AddToken(Token);
+
+                        }
+                    }
                     if (!GetCorreosUsuario(userId))
                     {
                         ModeloFacturacion modelFacturation = new ModeloFacturacion();
@@ -59,9 +73,7 @@ namespace Equitool.Controllers
                     }
                     else
                     {
-
                         ModeloFacturacion modeloFacturacion = new ModeloFacturacion();
-
                         modeloFacturacion.listaRegistros = new List<fac_facturacion>();
                         modeloFacturacion.respuestaError = null;
 
@@ -81,29 +93,38 @@ namespace Equitool.Controllers
         private bool GetCorreosUsuario(string userId)
         {
             bool variable = true;
+            tok_tokengmail token = new tok_tokengmail();
             try
             {
+
                 if (_httpContextAccessor.HttpContext.Session.GetString("SessionVar") == null)
                 {
-                    var resultado = _tokenGmail.GetTokenUsuario(userId);
-                    if (resultado != null)
-                        _httpContextAccessor.HttpContext.Session.SetString("SessionVar", _IFacturacion.Base64Decode(resultado.tokc_tokenusuario));
+                    token = _tokenGmail.GetTokenUsuario(userId);
+                    if (token.tokd_fechacreacion.AddMinutes(45) > DateTime.Now)
+                    {
+                        if (token != null)
+                            _httpContextAccessor.HttpContext.Session.SetString("SessionVar", _IFacturacion.Base64Decode(token.tokc_tokenusuario));
+                        else
+                            variable = false;
+                        string contraseña = _httpContextAccessor.HttpContext.Session.GetString("SessionVar");
+                        _status = AddCorreosAsync(this.User.Identity.Name, contraseña, userId);
+                        while (!_status.IsCompleted) { };
+                    }
                     else
                         variable = false;
                 }
                 else
                 {
-                    tok_tokengmail Token = new tok_tokengmail();
-                    Token.aspnet_userid = userId;
-                    Token.tokc_tokenusuario = _IFacturacion.Base64Encode(_httpContextAccessor.HttpContext.Session.GetString("SessionVar"));
-                    Token.tokd_fechacreacion = DateTime.Now;
-                    bool resultado = _tokenGmail.AddToken(Token);
-                }
-                if (variable)
-                {
-                    string contraseña = _httpContextAccessor.HttpContext.Session.GetString("SessionVar");
-                    _status = AddCorreosAsync(this.User.Identity.Name, contraseña, userId);
-                    while (!_status.IsCompleted) { };
+                    if (_httpContextAccessor.HttpContext.Session.GetString("IsFirstLogin") != null)
+                    {
+                        if (_httpContextAccessor.HttpContext.Session.GetString("IsFirstLogin").ToString().Equals("OK"))
+                        {
+                            _httpContextAccessor.HttpContext.Session.SetString("IsFirstLogin", "BAD");
+                            string contraseña = _httpContextAccessor.HttpContext.Session.GetString("SessionVar");
+                            _status = AddCorreosAsync(this.User.Identity.Name, contraseña, userId);
+                            while (!_status.IsCompleted) { };
+                        }
+                    }
                 }
             }
             catch
@@ -133,16 +154,44 @@ namespace Equitool.Controllers
                             for (int i = 0; i < mensajes.Count; i++)
                             {
                                 var message = mensajes.GetMessage(i, cancel.Token);
+                                bool blnresult = false;
+                                string ruta = null;
+                                if (message.Attachments.Count() > 0)
+                                {
+                                    foreach (var attachment in message.Attachments)
+                                    {
+                                        string name = Guid.NewGuid().ToString();
+                                        if (!System.IO.Directory.Exists(@"C:\Adjunto\"))
+                                            System.IO.Directory.CreateDirectory(@"C:\Adjunto\");
+                                        if (ruta == null)
+                                            ruta = @"C:\Adjunto\" + name + "." + attachment.ContentType.MediaSubtype;
+                                        else
+                                            ruta += ";" + @"C:\Adjunto\" + name + "." + attachment.ContentType.MediaSubtype;
 
-                                //Verifico si el correo tiene adjunto
-                                if (message.Body.IsAttachment)
+                                        using (var stream = System.IO.File.Create(@"C:\Adjunto\" + name + "." + attachment.ContentType.MediaSubtype))
+                                        {
+                                            if (attachment is MessagePart)
+                                            {
+                                                var part = (MessagePart)attachment;
+                                                part.Message.WriteTo(stream);
+                                            }
+                                            else
+                                            {
+                                                var part = (MimePart)attachment;
+                                                part.Content.DecodeTo(stream);
+                                            }
+                                        }
+                                    }
+                                    blnresult = true;
+                                }
+                                if (blnresult)
                                 {
                                     lista.Add(new fac_facturacion()
                                     {
                                         Aspnet_UserId = userId,
                                         facb_estado = true,
                                         facc_descripcion = string.IsNullOrEmpty(message.TextBody == "" ? null : message.TextBody) ? ("Sin Descripción") : message.TextBody,
-                                        facc_repositorio = "",
+                                        facc_repositorio = ruta,
                                         facd_fechacreacion = DateTime.Now,
                                         facc_desde = message.From.ToString(),
                                         facc_para = message.To.ToString(),
@@ -150,7 +199,8 @@ namespace Equitool.Controllers
                                     });
                                 }
                             }
-                            _IFacturacion.Adfacturas(lista);
+                            if (lista.Count > 0)
+                                _IFacturacion.Adfacturas(lista);
                         }
                     }
                 });
@@ -173,6 +223,25 @@ namespace Equitool.Controllers
                 modeloFacturacion.respuestaError = null;
 
                 return View("Index", modeloFacturacion);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        public IActionResult VerDetallado(string id)
+        {
+            try
+            {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                ModeloFacturacion modeloFacturacion = new ModeloFacturacion();
+                modeloFacturacion.listaRegistros = _IFacturacion.GetFacturacion(userId);
+                modeloFacturacion.respuestaError = null;
+                modeloFacturacion.registroModal = _IFacturacion.GetFacturacionById(Convert.ToInt32(id));
+                return View("Index", modeloFacturacion);
+
             }
             catch (Exception ex)
             {

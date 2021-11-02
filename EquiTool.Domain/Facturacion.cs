@@ -119,7 +119,7 @@ namespace EquiTool.Domain
             {
                 List<fac_facturacion> lista = new List<fac_facturacion>();
 
-                var result = _context.fac_facturacion.Any(x => x.facn_id > 0); 
+                var result = _context.fac_facturacion.Any(x => x.facn_id > 0);
                 int fac_id = 0;
                 if (result)
                     fac_id = (_context.fac_facturacion.ToList().LastOrDefault().facn_id + 1);
@@ -251,6 +251,27 @@ namespace EquiTool.Domain
 
             }
             catch
+            {
+
+                throw;
+            }
+        }
+
+        public fac_facturacion GetFacturacionById(int facn_id)
+        {
+            try
+            {
+                if (_context.fac_facturacion.Any(x => x.facn_id == facn_id))
+                {
+                    var registerToReturn = _context.fac_facturacion.FirstOrDefault(x => x.facn_id == facn_id);
+                    return registerToReturn;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
             {
 
                 throw;

@@ -30,5 +30,7 @@ namespace EquiTool.Aplication
         public string AddRol(string rol);
 
         public string DeleteRol(string rol);
+
+        public fac_facturacion GetFacturacionById(int facn_id);
     }
 }

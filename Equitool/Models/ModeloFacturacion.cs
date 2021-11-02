@@ -12,5 +12,8 @@ namespace Equitool.Models
 
         public string respuestaError { get; set; }
 
+
+        public fac_facturacion registroModal { get; set; }
+
     }
 }
