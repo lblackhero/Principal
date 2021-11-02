@@ -17,7 +17,6 @@ namespace EquiTool.infrastructure
             : base(options)
         {
         }
-
         protected override void OnModelCreating(ModelBuilder model_builder)
         {
             base.OnModelCreating(model_builder);
